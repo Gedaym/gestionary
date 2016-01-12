@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ParkingBundle\Entity\Space" table="space">
+    <indexes>
+      <index name="FK_space_space_type" columns="space_space_type_id"/>
+      <index name="FK_space_space_state" columns="space_space_state_id"/>
+    </indexes>
+    <id name="spaceId" type="integer" column="space_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="spaceIdParking" type="integer" column="space_id_parking" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="spacePrice" type="float" column="space_price" precision="10" scale="0" nullable="false"/>
+    <many-to-one field="spaceSpaceType" target-entity="SpaceType" fetch="LAZY">
+      <join-columns>
+        <join-column name="space_space_type_id" referenced-column-name="space_type_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="spaceSpaceState" target-entity="SpaceState" fetch="LAZY">
+      <join-columns>
+        <join-column name="space_space_state_id" referenced-column-name="space_state_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

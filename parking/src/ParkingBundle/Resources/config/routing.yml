@@ -1,0 +1,7 @@
+parking_customer:
+    resource: "@ParkingBundle/Resources/config/routing/customer.yml"
+    prefix:   /customer
+
+parking_homepage:
+    path:     /
+    defaults: { _controller: ParkingBundle:Default:index }

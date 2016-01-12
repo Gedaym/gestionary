@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ParkingBundle\Entity\Customer" table="customer">
+    <id name="customerId" type="integer" column="customer_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="customerIdTypeAdhesion" type="integer" column="customer_id_type_adhesion" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="customerImmatriculation" type="integer" column="customer_immatriculation" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

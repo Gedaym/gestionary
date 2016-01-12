@@ -1,0 +1,60 @@
+<?php
+
+namespace ParkingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Space
+ *
+ * @ORM\Table(name="space", indexes={@ORM\Index(name="FK_space_space_type", columns={"space_space_type_id"}), @ORM\Index(name="FK_space_space_state", columns={"space_space_state_id"})})
+ * @ORM\Entity
+ */
+class Space
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="space_id_parking", type="integer", nullable=false)
+     */
+    private $spaceIdParking;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="space_price", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $spacePrice;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="space_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $spaceId;
+
+    /**
+     * @var \ParkingBundle\Entity\SpaceType
+     *
+     * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\SpaceType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="space_space_type_id", referencedColumnName="space_type_id")
+     * })
+     */
+    private $spaceSpaceType;
+
+    /**
+     * @var \ParkingBundle\Entity\SpaceState
+     *
+     * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\SpaceState")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="space_space_state_id", referencedColumnName="space_state_id")
+     * })
+     */
+    private $spaceSpaceState;
+
+
+}
+
