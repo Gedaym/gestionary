@@ -57,7 +57,7 @@ class CustomerController extends Controller {
     public function showAction(Customer $customer) {
         $deleteForm = $this->createDeleteForm($customer);
 
-        return $this->render('customer/show.html.twig', array(
+        return $this->render('Customer/show.html.twig', array(
                     'customer' => $customer,
                     'delete_form' => $deleteForm->createView(),
         ));
@@ -80,7 +80,7 @@ class CustomerController extends Controller {
             return $this->redirectToRoute('customer_edit', array('id' => $customer->getId()));
         }
 
-        return $this->render('customer/edit.html.twig', array(
+        return $this->render('Customer/edit.html.twig', array(
                     'customer' => $customer,
                     'edit_form' => $editForm->createView(),
                     'delete_form' => $deleteForm->createView(),

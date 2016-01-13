@@ -1,6 +1,6 @@
 parking_customer:
     resource: "@ParkingBundle/Resources/config/routing/customer.yml"
-    prefix:   /customer
+    prefix:   /parking/customer
 
 parking_homepage:
     path:     /parking
