@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customer</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Customeridtypeadhesion</th>
+                <td>{{ customer.customerIdTypeAdhesion }}</td>
+            </tr>
+            <tr>
+                <th>Customerimmatriculation</th>
+                <td>{{ customer.customerImmatriculation }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ customer.customerId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('customer_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('customer_edit', { 'id': customer.customerId }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

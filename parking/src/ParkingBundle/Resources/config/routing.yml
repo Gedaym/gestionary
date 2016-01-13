@@ -3,5 +3,5 @@ parking_customer:
     prefix:   /customer
 
 parking_homepage:
-    path:     /
+    path:     /parking
     defaults: { _controller: ParkingBundle:Default:index }

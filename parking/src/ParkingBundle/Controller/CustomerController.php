@@ -4,7 +4,6 @@ namespace ParkingBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use ParkingBundle\Entity\Customer;
 use ParkingBundle\Form\CustomerType;
 
@@ -12,20 +11,19 @@ use ParkingBundle\Form\CustomerType;
  * Customer controller.
  *
  */
-class CustomerController extends Controller
-{
+class CustomerController extends Controller {
+
     /**
      * Lists all Customer entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $customers = $em->getRepository('ParkingBundle:Customer')->findAll();
 
-        return $this->render('customer/index.html.twig', array(
-            'customers' => $customers,
+        return $this->render('ParkingBundle:Customer:index.html.twig', array(
+                    'customers' => $customers,
         ));
     }
 
@@ -33,8 +31,7 @@ class CustomerController extends Controller
      * Creates a new Customer entity.
      *
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
         $customer = new Customer();
         $form = $this->createForm('ParkingBundle\Form\CustomerType', $customer);
         $form->handleRequest($request);
@@ -48,8 +45,8 @@ class CustomerController extends Controller
         }
 
         return $this->render('customer/new.html.twig', array(
-            'customer' => $customer,
-            'form' => $form->createView(),
+                    'customer' => $customer,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -57,13 +54,12 @@ class CustomerController extends Controller
      * Finds and displays a Customer entity.
      *
      */
-    public function showAction(Customer $customer)
-    {
+    public function showAction(Customer $customer) {
         $deleteForm = $this->createDeleteForm($customer);
 
         return $this->render('customer/show.html.twig', array(
-            'customer' => $customer,
-            'delete_form' => $deleteForm->createView(),
+                    'customer' => $customer,
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -71,8 +67,7 @@ class CustomerController extends Controller
      * Displays a form to edit an existing Customer entity.
      *
      */
-    public function editAction(Request $request, Customer $customer)
-    {
+    public function editAction(Request $request, Customer $customer) {
         $deleteForm = $this->createDeleteForm($customer);
         $editForm = $this->createForm('ParkingBundle\Form\CustomerType', $customer);
         $editForm->handleRequest($request);
@@ -86,9 +81,9 @@ class CustomerController extends Controller
         }
 
         return $this->render('customer/edit.html.twig', array(
-            'customer' => $customer,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'customer' => $customer,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -96,8 +91,7 @@ class CustomerController extends Controller
      * Deletes a Customer entity.
      *
      */
-    public function deleteAction(Request $request, Customer $customer)
-    {
+    public function deleteAction(Request $request, Customer $customer) {
         $form = $this->createDeleteForm($customer);
         $form->handleRequest($request);
 
@@ -117,12 +111,12 @@ class CustomerController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Customer $customer)
-    {
+    private function createDeleteForm(Customer $customer) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
+                        ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getId())))
+                        ->setMethod('DELETE')
+                        ->getForm()
         ;
     }
+
 }
