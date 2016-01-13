@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Parking</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Parkingname</th>
+                <td>{{ parking.parkingName }}</td>
+            </tr>
+            <tr>
+                <th>Parkingnumberstreet</th>
+                <td>{{ parking.parkingNumberStreet }}</td>
+            </tr>
+            <tr>
+                <th>Parkingstreet</th>
+                <td>{{ parking.parkingStreet }}</td>
+            </tr>
+            <tr>
+                <th>Parkingcity</th>
+                <td>{{ parking.parkingCity }}</td>
+            </tr>
+            <tr>
+                <th>Parkingpostalcode</th>
+                <td>{{ parking.parkingPostalCode }}</td>
+            </tr>
+            <tr>
+                <th>Parkingdescription</th>
+                <td>{{ parking.parkingDescription }}</td>
+            </tr>
+            <tr>
+                <th>Parkingid</th>
+                <td>{{ parking.parkingId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('parking_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('parking_edit', { 'id': parking.parkingId }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
