@@ -22,7 +22,7 @@ class CustomerController extends Controller {
 
         $customers = $em->getRepository('ParkingBundle:Customer')->findAll();
 
-        return $this->render('ParkingBundle:Customer:index.html.twig', array(
+        return $this->render('ParkingBundle:customer:index.html.twig', array(
                     'customers' => $customers,
         ));
     }
@@ -44,7 +44,7 @@ class CustomerController extends Controller {
             return $this->redirectToRoute('customer_show', array('id' => $customer->getId()));
         }
 
-        return $this->render('customer/new.html.twig', array(
+        return $this->render('ParkingBundle:customer:new.html.twig', array(
                     'customer' => $customer,
                     'form' => $form->createView(),
         ));
@@ -57,7 +57,7 @@ class CustomerController extends Controller {
     public function showAction(Customer $customer) {
         $deleteForm = $this->createDeleteForm($customer);
 
-        return $this->render('Customer/show.html.twig', array(
+        return $this->render('ParkingBundle:customer:show.html.twig', array(
                     'customer' => $customer,
                     'delete_form' => $deleteForm->createView(),
         ));
@@ -80,7 +80,7 @@ class CustomerController extends Controller {
             return $this->redirectToRoute('customer_edit', array('id' => $customer->getId()));
         }
 
-        return $this->render('Customer/edit.html.twig', array(
+        return $this->render('ParkingBundle:customer:edit.html.twig', array(
                     'customer' => $customer,
                     'edit_form' => $editForm->createView(),
                     'delete_form' => $deleteForm->createView(),
@@ -115,8 +115,7 @@ class CustomerController extends Controller {
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getId())))
                         ->setMethod('DELETE')
-                        ->getForm()
-        ;
+                        ->getForm();
     }
 
 }
