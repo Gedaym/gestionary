@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservation list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Reservationnumberreservation</th>
+                <th>Reservationdatestart</th>
+                <th>Reservationdateend</th>
+                <th>Reservationhourstart</th>
+                <th>Reservationhourend</th>
+                <th>Reservationprice</th>
+                <th>Reservationidspace</th>
+                <th>Reservationid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td><a href="{{ path('parking_reservation_show', { 'id': reservation.reservationId }) }}">{{ reservation.reservationNumberReservation }}</a></td>
+                <td>{% if reservation.reservationDateStart %}{{ reservation.reservationDateStart|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if reservation.reservationDateEnd %}{{ reservation.reservationDateEnd|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ reservation.reservationHourStart }}</td>
+                <td>{{ reservation.reservationHourEnd }}</td>
+                <td>{{ reservation.reservationPrice }}</td>
+                <td>{{ reservation.reservationIdSpace }}</td>
+                <td>{{ reservation.reservationId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('parking_reservation_show', { 'id': reservation.reservationId }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('parking_reservation_edit', { 'id': reservation.reservationId }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('parking_reservation_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

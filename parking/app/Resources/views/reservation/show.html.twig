@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reservation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Reservationnumberreservation</th>
+                <td>{{ reservation.reservationNumberReservation }}</td>
+            </tr>
+            <tr>
+                <th>Reservationdatestart</th>
+                <td>{% if reservation.reservationDateStart %}{{ reservation.reservationDateStart|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Reservationdateend</th>
+                <td>{% if reservation.reservationDateEnd %}{{ reservation.reservationDateEnd|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Reservationhourstart</th>
+                <td>{{ reservation.reservationHourStart }}</td>
+            </tr>
+            <tr>
+                <th>Reservationhourend</th>
+                <td>{{ reservation.reservationHourEnd }}</td>
+            </tr>
+            <tr>
+                <th>Reservationprice</th>
+                <td>{{ reservation.reservationPrice }}</td>
+            </tr>
+            <tr>
+                <th>Reservationidspace</th>
+                <td>{{ reservation.reservationIdSpace }}</td>
+            </tr>
+            <tr>
+                <th>Reservationid</th>
+                <td>{{ reservation.reservationId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('parking_reservation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('parking_reservation_edit', { 'id': reservation.reservationId }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
