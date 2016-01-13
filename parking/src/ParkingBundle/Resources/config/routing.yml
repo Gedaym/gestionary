@@ -5,3 +5,14 @@ parking_customer:
 parking_homepage:
     path:     /parking
     defaults: { _controller: ParkingBundle:Default:index }
+
+parking_getAll:
+    path:   /parking
+    defaults: { _controller: ParkingBundle:Default:getAll }
+    methods: GET
+    
+parking_get:
+    path:   /parking/{id}
+    defaults: { _controller: ParkingBundle:Default:get }
+    methods: GET
+    
