@@ -2,6 +2,10 @@ parking_customer:
     resource: "@ParkingBundle/Resources/config/routing/customer.yml"
     prefix:   /customer
 
+parking_reservation:
+    resource: "@ParkingBundle/Resources/config/routing/reservation.yml"
+    prefix:   /reservation
+
 parking_homepage:
     path:     /parking
     defaults: { _controller: ParkingBundle:Default:index }
