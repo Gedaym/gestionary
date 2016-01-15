@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Reservation
  *
- * @ORM\Table(name="reservation", indexes={@ORM\Index(name="FK_reservation_parking", columns={"parking"}), @ORM\Index(name="FK_reservation_customer", columns={"customer"})})
+ * @ORM\Table(name="reservation", indexes={@ORM\Index(name="FK_reservation_parking", columns={"parking_id"}), @ORM\Index(name="FK_reservation_customer", columns={"customer_id"})})
  * @ORM\Entity
  */
 class Reservation {
@@ -57,9 +57,9 @@ class Reservation {
     /**
      * @var integer
      *
-     * @ORM\Column(name="space", type="integer", nullable=false)
+     * @ORM\Column(name="nb_spaces", type="integer", nullable=false)
      */
-    private $space;
+    private $nbSpaces;
 
     /**
      * @var integer
@@ -75,21 +75,20 @@ class Reservation {
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\Parking")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="parking", referencedColumnName="parking_id")
+     *   @ORM\JoinColumn(name="parking_id", referencedColumnName="parking_id")
      * })
      */
-    private $parking;
+    private $parkingId;
 
     /**
      * @var \ParkingBundle\Entity\Customer
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\Customer")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="customer", referencedColumnName="customer_id")
+     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="customer_id")
      * })
      */
-    private $customer;
-
+    private $customerId;
 
     /**
      * Set numberReservation
@@ -98,8 +97,7 @@ class Reservation {
      *
      * @return Reservation
      */
-    public function setNumberReservation($numberReservation)
-    {
+    public function setNumberReservation($numberReservation) {
         $this->numberReservation = $numberReservation;
 
         return $this;
@@ -110,8 +108,7 @@ class Reservation {
      *
      * @return integer
      */
-    public function getNumberReservation()
-    {
+    public function getNumberReservation() {
         return $this->numberReservation;
     }
 
@@ -122,8 +119,7 @@ class Reservation {
      *
      * @return Reservation
      */
-    public function setDateStart($dateStart)
-    {
+    public function setDateStart($dateStart) {
         $this->dateStart = $dateStart;
 
         return $this;
@@ -134,8 +130,7 @@ class Reservation {
      *
      * @return \DateTime
      */
-    public function getDateStart()
-    {
+    public function getDateStart() {
         return $this->dateStart;
     }
 
@@ -146,8 +141,7 @@ class Reservation {
      *
      * @return Reservation
      */
-    public function setDateEnd($dateEnd)
-    {
+    public function setDateEnd($dateEnd) {
         $this->dateEnd = $dateEnd;
 
         return $this;
@@ -158,8 +152,7 @@ class Reservation {
      *
      * @return \DateTime
      */
-    public function getDateEnd()
-    {
+    public function getDateEnd() {
         return $this->dateEnd;
     }
 
@@ -170,8 +163,7 @@ class Reservation {
      *
      * @return Reservation
      */
-    public function setHourStart($hourStart)
-    {
+    public function setHourStart($hourStart) {
         $this->hourStart = $hourStart;
 
         return $this;
@@ -182,8 +174,7 @@ class Reservation {
      *
      * @return integer
      */
-    public function getHourStart()
-    {
+    public function getHourStart() {
         return $this->hourStart;
     }
 
@@ -194,8 +185,7 @@ class Reservation {
      *
      * @return Reservation
      */
-    public function setHourEnd($hourEnd)
-    {
+    public function setHourEnd($hourEnd) {
         $this->hourEnd = $hourEnd;
 
         return $this;
@@ -206,8 +196,7 @@ class Reservation {
      *
      * @return integer
      */
-    public function getHourEnd()
-    {
+    public function getHourEnd() {
         return $this->hourEnd;
     }
 
@@ -218,8 +207,7 @@ class Reservation {
      *
      * @return Reservation
      */
-    public function setPrice($price)
-    {
+    public function setPrice($price) {
         $this->price = $price;
 
         return $this;
@@ -230,33 +218,8 @@ class Reservation {
      *
      * @return float
      */
-    public function getPrice()
-    {
+    public function getPrice() {
         return $this->price;
-    }
-
-    /**
-     * Set space
-     *
-     * @param integer $space
-     *
-     * @return Reservation
-     */
-    public function setSpace($space)
-    {
-        $this->space = $space;
-
-        return $this;
-    }
-
-    /**
-     * Get space
-     *
-     * @return integer
-     */
-    public function getSpace()
-    {
-        return $this->space;
     }
 
     /**
@@ -264,56 +227,74 @@ class Reservation {
      *
      * @return integer
      */
-    public function getReservationId()
-    {
+    public function getReservationId() {
         return $this->reservationId;
     }
 
     /**
-     * Set parking
+     * Set nbSpaces
      *
-     * @param \ParkingBundle\Entity\Parking $parking
+     * @param integer $nbSpaces
      *
      * @return Reservation
      */
-    public function setParking(\ParkingBundle\Entity\Parking $parking = null)
-    {
-        $this->parking = $parking;
+    public function setNbSpaces($nbSpaces) {
+        $this->nbSpaces = $nbSpaces;
 
         return $this;
     }
 
     /**
-     * Get parking
+     * Get nbSpaces
+     *
+     * @return integer
+     */
+    public function getNbSpaces() {
+        return $this->nbSpaces;
+    }
+
+    /**
+     * Set parkingId
+     *
+     * @param \ParkingBundle\Entity\Parking $parkingId
+     *
+     * @return Reservation
+     */
+    public function setParkingId(\ParkingBundle\Entity\Parking $parkingId = null) {
+        $this->parkingId = $parkingId;
+
+        return $this;
+    }
+
+    /**
+     * Get parkingId
      *
      * @return \ParkingBundle\Entity\Parking
      */
-    public function getParking()
-    {
-        return $this->parking;
+    public function getParkingId() {
+        return $this->parkingId;
     }
 
     /**
-     * Set customer
+     * Set customerId
      *
-     * @param \ParkingBundle\Entity\Customer $customer
+     * @param \ParkingBundle\Entity\Customer $customerId
      *
      * @return Reservation
      */
-    public function setCustomer(\ParkingBundle\Entity\Customer $customer = null)
-    {
-        $this->customer = $customer;
+    public function setCustomerId(\ParkingBundle\Entity\Customer $customerId = null) {
+        $this->customerId = $customerId;
 
         return $this;
     }
 
     /**
-     * Get customer
+     * Get customerId
      *
      * @return \ParkingBundle\Entity\Customer
      */
-    public function getCustomer()
-    {
-        return $this->customer;
+    public function getCustomerId() {
+        return $this->customerId;
     }
+
 }

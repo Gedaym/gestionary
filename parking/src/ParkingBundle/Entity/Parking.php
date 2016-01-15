@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Parking
  *
- * @ORM\Table(name="parking", indexes={@ORM\Index(name="FK_parkingtype_parking", columns={"type"})})
+ * @ORM\Table(name="parking", indexes={@ORM\Index(name="FK_parkingtype_parking", columns={"type_id"})})
  * @ORM\Entity
  */
 class Parking {
@@ -68,11 +68,10 @@ class Parking {
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\ParkingType")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="type", referencedColumnName="parking_type_id")
+     *   @ORM\JoinColumn(name="type_id", referencedColumnName="parking_type_id")
      * })
      */
-    private $type;
-
+    private $typeId;
 
     /**
      * Set name
@@ -81,8 +80,7 @@ class Parking {
      *
      * @return Parking
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -93,8 +91,7 @@ class Parking {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -105,8 +102,7 @@ class Parking {
      *
      * @return Parking
      */
-    public function setNumberStreet($numberStreet)
-    {
+    public function setNumberStreet($numberStreet) {
         $this->numberStreet = $numberStreet;
 
         return $this;
@@ -117,8 +113,7 @@ class Parking {
      *
      * @return integer
      */
-    public function getNumberStreet()
-    {
+    public function getNumberStreet() {
         return $this->numberStreet;
     }
 
@@ -129,8 +124,7 @@ class Parking {
      *
      * @return Parking
      */
-    public function setStreet($street)
-    {
+    public function setStreet($street) {
         $this->street = $street;
 
         return $this;
@@ -141,8 +135,7 @@ class Parking {
      *
      * @return string
      */
-    public function getStreet()
-    {
+    public function getStreet() {
         return $this->street;
     }
 
@@ -153,8 +146,7 @@ class Parking {
      *
      * @return Parking
      */
-    public function setCity($city)
-    {
+    public function setCity($city) {
         $this->city = $city;
 
         return $this;
@@ -165,8 +157,7 @@ class Parking {
      *
      * @return string
      */
-    public function getCity()
-    {
+    public function getCity() {
         return $this->city;
     }
 
@@ -177,8 +168,7 @@ class Parking {
      *
      * @return Parking
      */
-    public function setPostalCode($postalCode)
-    {
+    public function setPostalCode($postalCode) {
         $this->postalCode = $postalCode;
 
         return $this;
@@ -189,8 +179,7 @@ class Parking {
      *
      * @return integer
      */
-    public function getPostalCode()
-    {
+    public function getPostalCode() {
         return $this->postalCode;
     }
 
@@ -201,8 +190,7 @@ class Parking {
      *
      * @return Parking
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -213,8 +201,7 @@ class Parking {
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -223,32 +210,30 @@ class Parking {
      *
      * @return integer
      */
-    public function getParkingId()
-    {
+    public function getParkingId() {
         return $this->parkingId;
     }
 
     /**
-     * Set type
+     * Set typeId
      *
-     * @param \ParkingBundle\Entity\ParkingType $type
+     * @param \ParkingBundle\Entity\ParkingType $typeId
      *
      * @return Parking
      */
-    public function setType(\ParkingBundle\Entity\ParkingType $type = null)
-    {
-        $this->type = $type;
+    public function setTypeId(\ParkingBundle\Entity\ParkingType $typeId = null) {
+        $this->typeId = $typeId;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get typeId
      *
      * @return \ParkingBundle\Entity\ParkingType
      */
-    public function getType()
-    {
-        return $this->type;
+    public function getTypeId() {
+        return $this->typeId;
     }
+
 }
