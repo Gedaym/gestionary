@@ -9,5 +9,5 @@
 /vendor/
 /bin/
 /composer.phar
-parking/composer.lock
+/composer.lock
 /nbproject

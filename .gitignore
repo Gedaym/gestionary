@@ -1,1 +1,15 @@
-parking/composer.lock
+/parking/composer.lock
+/parking/app/config/parameters.yml
+/parking/web/bundles/
+/parking/app/cache/*
+/parking/app/config/parameters.yml
+/parking/app/logs/*
+!parking/app/cache/.gitkeep
+!parking/app/logs/.gitkeep
+/parking/app/phpunit.xml
+/parking/build/
+/parking/vendor/
+/parking/bin/
+/parking/composer.phar
+/parking/composer.lock
+/parking/nbproject
