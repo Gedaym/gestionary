@@ -41,7 +41,7 @@ class CustomerController extends Controller {
             $em->persist($customer);
             $em->flush();
 
-            return $this->redirectToRoute('customer_show', array('id' => $customer->getId()));
+            return $this->redirectToRoute('customer_show', array('id' => $customer->getCustomerId()));
         }
 
         return $this->render('ParkingBundle:Customer:new.html.twig', array(
@@ -77,7 +77,7 @@ class CustomerController extends Controller {
             $em->persist($customer);
             $em->flush();
 
-            return $this->redirectToRoute('customer_edit', array('id' => $customer->getId()));
+            return $this->redirectToRoute('customer_edit', array('id' => $customer->getCustomerId()));
         }
 
         return $this->render('ParkingBundle:Customer:edit.html.twig', array(
@@ -113,7 +113,7 @@ class CustomerController extends Controller {
      */
     private function createDeleteForm(Customer $customer) {
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getId())))
+                        ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getCustomerId())))
                         ->setMethod('DELETE')
                         ->getForm()
         ;

@@ -41,7 +41,7 @@ class ReservationController extends Controller {
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
+            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getReservationId()));
         }
 
         return $this->render('ParkingBundle:Reservation:new.html.twig', array(
@@ -77,7 +77,7 @@ class ReservationController extends Controller {
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('reservation_edit', array('id' => $reservation->getId()));
+            return $this->redirectToRoute('reservation_edit', array('id' => $reservation->getReservationId()));
         }
 
         return $this->render('ParkingBundle:Reservation:edit.html.twig', array(
@@ -113,7 +113,7 @@ class ReservationController extends Controller {
      */
     private function createDeleteForm(Reservation $reservation) {
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('reservation_delete', array('id' => $reservation->getId())))
+                        ->setAction($this->generateUrl('reservation_delete', array('id' => $reservation->getReservationId())))
                         ->setMethod('DELETE')
                         ->getForm()
         ;
