@@ -6,13 +6,13 @@
     <table>
         <thead>
             <tr>
-                <th>Reservationnumberreservation</th>
-                <th>Reservationdatestart</th>
-                <th>Reservationdateend</th>
-                <th>Reservationhourstart</th>
-                <th>Reservationhourend</th>
-                <th>Reservationprice</th>
-                <th>Reservationidspace</th>
+                <th>Numberreservation</th>
+                <th>Datestart</th>
+                <th>Dateend</th>
+                <th>Hourstart</th>
+                <th>Hourend</th>
+                <th>Price</th>
+                <th>Space</th>
                 <th>Reservationid</th>
                 <th>Actions</th>
             </tr>
@@ -20,21 +20,21 @@
         <tbody>
         {% for reservation in reservations %}
             <tr>
-                <td><a href="{{ path('parking_reservation_show', { 'id': reservation.reservationId }) }}">{{ reservation.reservationNumberReservation }}</a></td>
-                <td>{% if reservation.reservationDateStart %}{{ reservation.reservationDateStart|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if reservation.reservationDateEnd %}{{ reservation.reservationDateEnd|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ reservation.reservationHourStart }}</td>
-                <td>{{ reservation.reservationHourEnd }}</td>
-                <td>{{ reservation.reservationPrice }}</td>
-                <td>{{ reservation.reservationIdSpace }}</td>
+                <td><a href="{{ path('reservation_show', { 'id': reservation.reservationId }) }}">{{ reservation.numberReservation }}</a></td>
+                <td>{% if reservation.dateStart %}{{ reservation.dateStart|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if reservation.dateEnd %}{{ reservation.dateEnd|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ reservation.hourStart }}</td>
+                <td>{{ reservation.hourEnd }}</td>
+                <td>{{ reservation.price }}</td>
+                <td>{{ reservation.space }}</td>
                 <td>{{ reservation.reservationId }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('parking_reservation_show', { 'id': reservation.reservationId }) }}">show</a>
+                            <a href="{{ path('reservation_show', { 'id': reservation.reservationId }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('parking_reservation_edit', { 'id': reservation.reservationId }) }}">edit</a>
+                            <a href="{{ path('reservation_edit', { 'id': reservation.reservationId }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -45,7 +45,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('parking_reservation_new') }}">Create a new entry</a>
+            <a href="{{ path('reservation_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

@@ -7,59 +7,59 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Reservation
  *
- * @ORM\Table(name="reservation", indexes={@ORM\Index(name="FK_reservation_parking", columns={"reservation_parking_id"}), @ORM\Index(name="FK_reservation_customer", columns={"reservation_customer_id"})})
+ * @ORM\Table(name="reservation", indexes={@ORM\Index(name="FK_reservation_parking", columns={"parking"}), @ORM\Index(name="FK_reservation_customer", columns={"customer"})})
  * @ORM\Entity
  */
-class Reservation
-{
+class Reservation {
+
     /**
      * @var integer
      *
-     * @ORM\Column(name="reservation_number_reservation", type="integer", nullable=false)
+     * @ORM\Column(name="number_reservation", type="integer", nullable=false)
      */
-    private $reservationNumberReservation;
+    private $numberReservation;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="reservation_date_start", type="date", nullable=false)
+     * @ORM\Column(name="date_start", type="date", nullable=false)
      */
-    private $reservationDateStart;
+    private $dateStart;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="reservation_date_end", type="date", nullable=false)
+     * @ORM\Column(name="date_end", type="date", nullable=false)
      */
-    private $reservationDateEnd;
+    private $dateEnd;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="reservation_hour_start", type="integer", nullable=false)
+     * @ORM\Column(name="hour_start", type="integer", nullable=false)
      */
-    private $reservationHourStart;
+    private $hourStart;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="reservation_hour_end", type="integer", nullable=false)
+     * @ORM\Column(name="hour_end", type="integer", nullable=false)
      */
-    private $reservationHourEnd;
+    private $hourEnd;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="reservation_price", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=false)
      */
-    private $reservationPrice;
+    private $price;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="reservation_id_space", type="integer", nullable=false)
+     * @ORM\Column(name="space", type="integer", nullable=false)
      */
-    private $reservationIdSpace;
+    private $space;
 
     /**
      * @var integer
@@ -75,189 +75,188 @@ class Reservation
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\Parking")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="reservation_parking_id", referencedColumnName="parking_id")
+     *   @ORM\JoinColumn(name="parking", referencedColumnName="parking_id")
      * })
      */
-    private $reservationParking;
+    private $parking;
 
     /**
      * @var \ParkingBundle\Entity\Customer
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\Customer")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="reservation_customer_id", referencedColumnName="customer_id")
+     *   @ORM\JoinColumn(name="customer", referencedColumnName="customer_id")
      * })
      */
-    private $reservationCustomer;
-
+    private $customer;
 
 
     /**
-     * Set reservationNumberReservation
+     * Set numberReservation
      *
-     * @param integer $reservationNumberReservation
+     * @param integer $numberReservation
      *
      * @return Reservation
      */
-    public function setReservationNumberReservation($reservationNumberReservation)
+    public function setNumberReservation($numberReservation)
     {
-        $this->reservationNumberReservation = $reservationNumberReservation;
+        $this->numberReservation = $numberReservation;
 
         return $this;
     }
 
     /**
-     * Get reservationNumberReservation
+     * Get numberReservation
      *
      * @return integer
      */
-    public function getReservationNumberReservation()
+    public function getNumberReservation()
     {
-        return $this->reservationNumberReservation;
+        return $this->numberReservation;
     }
 
     /**
-     * Set reservationDateStart
+     * Set dateStart
      *
-     * @param \DateTime $reservationDateStart
+     * @param \DateTime $dateStart
      *
      * @return Reservation
      */
-    public function setReservationDateStart($reservationDateStart)
+    public function setDateStart($dateStart)
     {
-        $this->reservationDateStart = $reservationDateStart;
+        $this->dateStart = $dateStart;
 
         return $this;
     }
 
     /**
-     * Get reservationDateStart
+     * Get dateStart
      *
      * @return \DateTime
      */
-    public function getReservationDateStart()
+    public function getDateStart()
     {
-        return $this->reservationDateStart;
+        return $this->dateStart;
     }
 
     /**
-     * Set reservationDateEnd
+     * Set dateEnd
      *
-     * @param \DateTime $reservationDateEnd
+     * @param \DateTime $dateEnd
      *
      * @return Reservation
      */
-    public function setReservationDateEnd($reservationDateEnd)
+    public function setDateEnd($dateEnd)
     {
-        $this->reservationDateEnd = $reservationDateEnd;
+        $this->dateEnd = $dateEnd;
 
         return $this;
     }
 
     /**
-     * Get reservationDateEnd
+     * Get dateEnd
      *
      * @return \DateTime
      */
-    public function getReservationDateEnd()
+    public function getDateEnd()
     {
-        return $this->reservationDateEnd;
+        return $this->dateEnd;
     }
 
     /**
-     * Set reservationHourStart
+     * Set hourStart
      *
-     * @param integer $reservationHourStart
+     * @param integer $hourStart
      *
      * @return Reservation
      */
-    public function setReservationHourStart($reservationHourStart)
+    public function setHourStart($hourStart)
     {
-        $this->reservationHourStart = $reservationHourStart;
+        $this->hourStart = $hourStart;
 
         return $this;
     }
 
     /**
-     * Get reservationHourStart
+     * Get hourStart
      *
      * @return integer
      */
-    public function getReservationHourStart()
+    public function getHourStart()
     {
-        return $this->reservationHourStart;
+        return $this->hourStart;
     }
 
     /**
-     * Set reservationHourEnd
+     * Set hourEnd
      *
-     * @param integer $reservationHourEnd
+     * @param integer $hourEnd
      *
      * @return Reservation
      */
-    public function setReservationHourEnd($reservationHourEnd)
+    public function setHourEnd($hourEnd)
     {
-        $this->reservationHourEnd = $reservationHourEnd;
+        $this->hourEnd = $hourEnd;
 
         return $this;
     }
 
     /**
-     * Get reservationHourEnd
+     * Get hourEnd
      *
      * @return integer
      */
-    public function getReservationHourEnd()
+    public function getHourEnd()
     {
-        return $this->reservationHourEnd;
+        return $this->hourEnd;
     }
 
     /**
-     * Set reservationPrice
+     * Set price
      *
-     * @param float $reservationPrice
+     * @param float $price
      *
      * @return Reservation
      */
-    public function setReservationPrice($reservationPrice)
+    public function setPrice($price)
     {
-        $this->reservationPrice = $reservationPrice;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get reservationPrice
+     * Get price
      *
      * @return float
      */
-    public function getReservationPrice()
+    public function getPrice()
     {
-        return $this->reservationPrice;
+        return $this->price;
     }
 
     /**
-     * Set reservationIdSpace
+     * Set space
      *
-     * @param integer $reservationIdSpace
+     * @param integer $space
      *
      * @return Reservation
      */
-    public function setReservationIdSpace($reservationIdSpace)
+    public function setSpace($space)
     {
-        $this->reservationIdSpace = $reservationIdSpace;
+        $this->space = $space;
 
         return $this;
     }
 
     /**
-     * Get reservationIdSpace
+     * Get space
      *
      * @return integer
      */
-    public function getReservationIdSpace()
+    public function getSpace()
     {
-        return $this->reservationIdSpace;
+        return $this->space;
     }
 
     /**
@@ -271,50 +270,50 @@ class Reservation
     }
 
     /**
-     * Set reservationParking
+     * Set parking
      *
-     * @param \ParkingBundle\Entity\Parking $reservationParking
+     * @param \ParkingBundle\Entity\Parking $parking
      *
      * @return Reservation
      */
-    public function setReservationParking(\ParkingBundle\Entity\Parking $reservationParking = null)
+    public function setParking(\ParkingBundle\Entity\Parking $parking = null)
     {
-        $this->reservationParking = $reservationParking;
+        $this->parking = $parking;
 
         return $this;
     }
 
     /**
-     * Get reservationParking
+     * Get parking
      *
      * @return \ParkingBundle\Entity\Parking
      */
-    public function getReservationParking()
+    public function getParking()
     {
-        return $this->reservationParking;
+        return $this->parking;
     }
 
     /**
-     * Set reservationCustomer
+     * Set customer
      *
-     * @param \ParkingBundle\Entity\Customer $reservationCustomer
+     * @param \ParkingBundle\Entity\Customer $customer
      *
      * @return Reservation
      */
-    public function setReservationCustomer(\ParkingBundle\Entity\Customer $reservationCustomer = null)
+    public function setCustomer(\ParkingBundle\Entity\Customer $customer = null)
     {
-        $this->reservationCustomer = $reservationCustomer;
+        $this->customer = $customer;
 
         return $this;
     }
 
     /**
-     * Get reservationCustomer
+     * Get customer
      *
      * @return \ParkingBundle\Entity\Customer
      */
-    public function getReservationCustomer()
+    public function getCustomer()
     {
-        return $this->reservationCustomer;
+        return $this->customer;
     }
 }

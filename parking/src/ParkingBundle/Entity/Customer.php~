@@ -1,0 +1,38 @@
+<?php
+
+namespace ParkingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Customer
+ *
+ * @ORM\Table(name="customer")
+ * @ORM\Entity
+ */
+class Customer {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="type_adhesion", type="integer", nullable=false)
+     */
+    private $typeAdhesion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="immatriculation", type="integer", nullable=false)
+     */
+    private $immatriculation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="customer_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $customerId;
+
+}

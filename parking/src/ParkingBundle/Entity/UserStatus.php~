@@ -28,38 +28,4 @@ class UserStatus {
      */
     private $userStatusId;
 
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return UserStatus
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get userStatusId
-     *
-     * @return integer
-     */
-    public function getUserStatusId()
-    {
-        return $this->userStatusId;
-    }
 }

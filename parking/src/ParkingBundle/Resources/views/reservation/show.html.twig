@@ -6,32 +6,32 @@
     <table>
         <tbody>
             <tr>
-                <th>Reservationnumberreservation</th>
-                <td>{{ reservation.reservationNumberReservation }}</td>
+                <th>Numberreservation</th>
+                <td>{{ reservation.numberReservation }}</td>
             </tr>
             <tr>
-                <th>Reservationdatestart</th>
-                <td>{% if reservation.reservationDateStart %}{{ reservation.reservationDateStart|date('Y-m-d') }}{% endif %}</td>
+                <th>Datestart</th>
+                <td>{% if reservation.dateStart %}{{ reservation.dateStart|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Reservationdateend</th>
-                <td>{% if reservation.reservationDateEnd %}{{ reservation.reservationDateEnd|date('Y-m-d') }}{% endif %}</td>
+                <th>Dateend</th>
+                <td>{% if reservation.dateEnd %}{{ reservation.dateEnd|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Reservationhourstart</th>
-                <td>{{ reservation.reservationHourStart }}</td>
+                <th>Hourstart</th>
+                <td>{{ reservation.hourStart }}</td>
             </tr>
             <tr>
-                <th>Reservationhourend</th>
-                <td>{{ reservation.reservationHourEnd }}</td>
+                <th>Hourend</th>
+                <td>{{ reservation.hourEnd }}</td>
             </tr>
             <tr>
-                <th>Reservationprice</th>
-                <td>{{ reservation.reservationPrice }}</td>
+                <th>Price</th>
+                <td>{{ reservation.price }}</td>
             </tr>
             <tr>
-                <th>Reservationidspace</th>
-                <td>{{ reservation.reservationIdSpace }}</td>
+                <th>Space</th>
+                <td>{{ reservation.space }}</td>
             </tr>
             <tr>
                 <th>Reservationid</th>
@@ -42,10 +42,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('parking_reservation_index') }}">Back to the list</a>
+            <a href="{{ path('reservation_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('parking_reservation_edit', { 'id': reservation.reservationId }) }}">Edit</a>
+            <a href="{{ path('reservation_edit', { 'id': reservation.reservationId }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

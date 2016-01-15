@@ -41,7 +41,7 @@ class ReservationController extends Controller {
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('parking_reservation_show', array('id' => $reservation->getId()));
+            return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
         }
 
         return $this->render('ParkingBundle:Reservation:new.html.twig', array(
@@ -57,7 +57,7 @@ class ReservationController extends Controller {
     public function showAction(Reservation $reservation) {
         $deleteForm = $this->createDeleteForm($reservation);
 
-        return $this->render('ParkingBundle:Reservation:show.html.twig', array(
+        return $this->render('reservation/show.html.twig', array(
                     'reservation' => $reservation,
                     'delete_form' => $deleteForm->createView(),
         ));
@@ -77,7 +77,7 @@ class ReservationController extends Controller {
             $em->persist($reservation);
             $em->flush();
 
-            return $this->redirectToRoute('parking_reservation_edit', array('id' => $reservation->getId()));
+            return $this->redirectToRoute('reservation_edit', array('id' => $reservation->getId()));
         }
 
         return $this->render('ParkingBundle:Reservation:edit.html.twig', array(
@@ -101,7 +101,7 @@ class ReservationController extends Controller {
             $em->flush();
         }
 
-        return $this->redirectToRoute('parking_reservation_index');
+        return $this->redirectToRoute('reservation_index');
     }
 
     /**
@@ -113,7 +113,7 @@ class ReservationController extends Controller {
      */
     private function createDeleteForm(Reservation $reservation) {
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('parking_reservation_delete', array('id' => $reservation->getId())))
+                        ->setAction($this->generateUrl('reservation_delete', array('id' => $reservation->getId())))
                         ->setMethod('DELETE')
                         ->getForm()
         ;

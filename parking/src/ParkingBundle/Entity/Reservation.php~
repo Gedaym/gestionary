@@ -1,0 +1,93 @@
+<?php
+
+namespace ParkingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reservation
+ *
+ * @ORM\Table(name="reservation", indexes={@ORM\Index(name="FK_reservation_parking", columns={"parking"}), @ORM\Index(name="FK_reservation_customer", columns={"customer"})})
+ * @ORM\Entity
+ */
+class Reservation {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="number_reservation", type="integer", nullable=false)
+     */
+    private $numberReservation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_start", type="date", nullable=false)
+     */
+    private $dateStart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_end", type="date", nullable=false)
+     */
+    private $dateEnd;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="hour_start", type="integer", nullable=false)
+     */
+    private $hourStart;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="hour_end", type="integer", nullable=false)
+     */
+    private $hourEnd;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $price;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="space", type="integer", nullable=false)
+     */
+    private $space;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="reservation_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $reservationId;
+
+    /**
+     * @var \ParkingBundle\Entity\Parking
+     *
+     * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\Parking")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="parking", referencedColumnName="parking_id")
+     * })
+     */
+    private $parking;
+
+    /**
+     * @var \ParkingBundle\Entity\Customer
+     *
+     * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\Customer")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customer", referencedColumnName="customer_id")
+     * })
+     */
+    private $customer;
+
+}

@@ -1,0 +1,76 @@
+<?php
+
+namespace ParkingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Parking
+ *
+ * @ORM\Table(name="parking", indexes={@ORM\Index(name="FK_parkingtype_parking", columns={"type"})})
+ * @ORM\Entity
+ */
+class Parking {
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="number_street", type="integer", nullable=false)
+     */
+    private $numberStreet = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=50, nullable=false)
+     */
+    private $street = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=50, nullable=false)
+     */
+    private $city = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="postal_code", type="integer", nullable=false)
+     */
+    private $postalCode = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parking_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $parkingId;
+
+    /**
+     * @var \ParkingBundle\Entity\ParkingType
+     *
+     * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\ParkingType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="type", referencedColumnName="parking_type_id")
+     * })
+     */
+    private $type;
+
+}

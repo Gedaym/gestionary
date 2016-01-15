@@ -28,38 +28,4 @@ class ParkingType {
      */
     private $parkingTypeId;
 
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return ParkingType
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get parkingTypeId
-     *
-     * @return integer
-     */
-    public function getParkingTypeId()
-    {
-        return $this->parkingTypeId;
-    }
 }

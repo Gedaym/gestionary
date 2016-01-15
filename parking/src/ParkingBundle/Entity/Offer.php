@@ -10,35 +10,35 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="offer")
  * @ORM\Entity
  */
-class Offer
-{
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="offer_name", type="string", length=50, nullable=false)
-     */
-    private $offerName;
+class Offer {
 
     /**
      * @var string
      *
-     * @ORM\Column(name="offer_description", type="text", length=65535, nullable=true)
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
-    private $offerDescription;
+    private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="offer_state", type="string", length=50, nullable=false)
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
      */
-    private $offerState;
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=50, nullable=false)
+     */
+    private $state;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="offer_reduction", type="integer", nullable=false)
+     * @ORM\Column(name="reduction", type="integer", nullable=false)
      */
-    private $offerReduction;
+    private $reduction;
 
     /**
      * @var integer
@@ -50,101 +50,100 @@ class Offer
     private $offerId;
 
 
-
     /**
-     * Set offerName
+     * Set name
      *
-     * @param string $offerName
+     * @param string $name
      *
      * @return Offer
      */
-    public function setOfferName($offerName)
+    public function setName($name)
     {
-        $this->offerName = $offerName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get offerName
+     * Get name
      *
      * @return string
      */
-    public function getOfferName()
+    public function getName()
     {
-        return $this->offerName;
+        return $this->name;
     }
 
     /**
-     * Set offerDescription
+     * Set description
      *
-     * @param string $offerDescription
+     * @param string $description
      *
      * @return Offer
      */
-    public function setOfferDescription($offerDescription)
+    public function setDescription($description)
     {
-        $this->offerDescription = $offerDescription;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get offerDescription
+     * Get description
      *
      * @return string
      */
-    public function getOfferDescription()
+    public function getDescription()
     {
-        return $this->offerDescription;
+        return $this->description;
     }
 
     /**
-     * Set offerState
+     * Set state
      *
-     * @param string $offerState
+     * @param string $state
      *
      * @return Offer
      */
-    public function setOfferState($offerState)
+    public function setState($state)
     {
-        $this->offerState = $offerState;
+        $this->state = $state;
 
         return $this;
     }
 
     /**
-     * Get offerState
+     * Get state
      *
      * @return string
      */
-    public function getOfferState()
+    public function getState()
     {
-        return $this->offerState;
+        return $this->state;
     }
 
     /**
-     * Set offerReduction
+     * Set reduction
      *
-     * @param integer $offerReduction
+     * @param integer $reduction
      *
      * @return Offer
      */
-    public function setOfferReduction($offerReduction)
+    public function setReduction($reduction)
     {
-        $this->offerReduction = $offerReduction;
+        $this->reduction = $reduction;
 
         return $this;
     }
 
     /**
-     * Get offerReduction
+     * Get reduction
      *
      * @return integer
      */
-    public function getOfferReduction()
+    public function getReduction()
     {
-        return $this->offerReduction;
+        return $this->reduction;
     }
 
     /**

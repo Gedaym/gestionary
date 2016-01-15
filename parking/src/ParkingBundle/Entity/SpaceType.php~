@@ -28,38 +28,4 @@ class SpaceType {
      */
     private $spaceTypeId;
 
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return SpaceType
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get spaceTypeId
-     *
-     * @return integer
-     */
-    public function getSpaceTypeId()
-    {
-        return $this->spaceTypeId;
-    }
 }

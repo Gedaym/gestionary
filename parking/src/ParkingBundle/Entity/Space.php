@@ -7,11 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Space
  *
- * @ORM\Table(name="space", indexes={@ORM\Index(name="FK_space_space_type", columns={"space_space_type_id"}), @ORM\Index(name="FK_space_space_state", columns={"space_space_state_id"})})
+ * @ORM\Table(name="space", indexes={@ORM\Index(name="FK_space_space_type", columns={"type"}), @ORM\Index(name="FK_space_space_state", columns={"state"})})
  * @ORM\Entity
  */
-class Space
-{
+class Space {
+
     /**
      * @var integer
      *
@@ -22,9 +22,9 @@ class Space
     /**
      * @var float
      *
-     * @ORM\Column(name="space_price", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=false)
      */
-    private $spacePrice;
+    private $price;
 
     /**
      * @var integer
@@ -40,21 +40,20 @@ class Space
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\SpaceType")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="space_space_type_id", referencedColumnName="space_type_id")
+     *   @ORM\JoinColumn(name="type", referencedColumnName="space_type_id")
      * })
      */
-    private $spaceSpaceType;
+    private $type;
 
     /**
      * @var \ParkingBundle\Entity\SpaceState
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\SpaceState")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="space_space_state_id", referencedColumnName="space_state_id")
+     *   @ORM\JoinColumn(name="state", referencedColumnName="space_state_id")
      * })
      */
-    private $spaceSpaceState;
-
+    private $state;
 
 
     /**
@@ -82,27 +81,27 @@ class Space
     }
 
     /**
-     * Set spacePrice
+     * Set price
      *
-     * @param float $spacePrice
+     * @param float $price
      *
      * @return Space
      */
-    public function setSpacePrice($spacePrice)
+    public function setPrice($price)
     {
-        $this->spacePrice = $spacePrice;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get spacePrice
+     * Get price
      *
      * @return float
      */
-    public function getSpacePrice()
+    public function getPrice()
     {
-        return $this->spacePrice;
+        return $this->price;
     }
 
     /**
@@ -116,50 +115,50 @@ class Space
     }
 
     /**
-     * Set spaceSpaceType
+     * Set type
      *
-     * @param \ParkingBundle\Entity\SpaceType $spaceSpaceType
+     * @param \ParkingBundle\Entity\SpaceType $type
      *
      * @return Space
      */
-    public function setSpaceSpaceType(\ParkingBundle\Entity\SpaceType $spaceSpaceType = null)
+    public function setType(\ParkingBundle\Entity\SpaceType $type = null)
     {
-        $this->spaceSpaceType = $spaceSpaceType;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get spaceSpaceType
+     * Get type
      *
      * @return \ParkingBundle\Entity\SpaceType
      */
-    public function getSpaceSpaceType()
+    public function getType()
     {
-        return $this->spaceSpaceType;
+        return $this->type;
     }
 
     /**
-     * Set spaceSpaceState
+     * Set state
      *
-     * @param \ParkingBundle\Entity\SpaceState $spaceSpaceState
+     * @param \ParkingBundle\Entity\SpaceState $state
      *
      * @return Space
      */
-    public function setSpaceSpaceState(\ParkingBundle\Entity\SpaceState $spaceSpaceState = null)
+    public function setState(\ParkingBundle\Entity\SpaceState $state = null)
     {
-        $this->spaceSpaceState = $spaceSpaceState;
+        $this->state = $state;
 
         return $this;
     }
 
     /**
-     * Get spaceSpaceState
+     * Get state
      *
      * @return \ParkingBundle\Entity\SpaceState
      */
-    public function getSpaceSpaceState()
+    public function getState()
     {
-        return $this->spaceSpaceState;
+        return $this->state;
     }
 }

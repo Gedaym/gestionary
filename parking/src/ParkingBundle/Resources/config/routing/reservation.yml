@@ -1,24 +1,24 @@
-parking_reservation_index:
+reservation_index:
     path:     /
     defaults: { _controller: "ParkingBundle:Reservation:index" }
     methods:  GET
 
-parking_reservation_show:
+reservation_show:
     path:     /{id}/show
     defaults: { _controller: "ParkingBundle:Reservation:show" }
     methods:  GET
 
-parking_reservation_new:
+reservation_new:
     path:     /new
     defaults: { _controller: "ParkingBundle:Reservation:new" }
     methods:  [GET, POST]
 
-parking_reservation_edit:
+reservation_edit:
     path:     /{id}/edit
     defaults: { _controller: "ParkingBundle:Reservation:edit" }
     methods:  [GET, POST]
 
-parking_reservation_delete:
+reservation_delete:
     path:     /{id}/delete
     defaults: { _controller: "ParkingBundle:Reservation:delete" }
     methods:  DELETE

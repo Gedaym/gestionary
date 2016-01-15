@@ -1,0 +1,52 @@
+<?php
+
+namespace ParkingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Offer
+ *
+ * @ORM\Table(name="offer")
+ * @ORM\Entity
+ */
+class Offer {
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=50, nullable=false)
+     */
+    private $state;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="reduction", type="integer", nullable=false)
+     */
+    private $reduction;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="offer_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $offerId;
+
+}

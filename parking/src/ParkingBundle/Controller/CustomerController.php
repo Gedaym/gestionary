@@ -41,10 +41,10 @@ class CustomerController extends Controller {
             $em->persist($customer);
             $em->flush();
 
-            return $this->redirectToRoute('customer_show', array('id' => $customer->getId()));
+            return $this->redirectToRoute('customer_show', array('id' => $customer->getCustomerId()));
         }
 
-        return $this->render('customer/new.html.twig', array(
+        return $this->render('ParkingBundle:Customer:new.html.twig', array(
                     'customer' => $customer,
                     'form' => $form->createView(),
         ));
@@ -57,7 +57,7 @@ class CustomerController extends Controller {
     public function showAction(Customer $customer) {
         $deleteForm = $this->createDeleteForm($customer);
 
-        return $this->render('customer/show.html.twig', array(
+        return $this->render('ParkingBundle:Customer:show.html.twig', array(
                     'customer' => $customer,
                     'delete_form' => $deleteForm->createView(),
         ));
@@ -77,10 +77,10 @@ class CustomerController extends Controller {
             $em->persist($customer);
             $em->flush();
 
-            return $this->redirectToRoute('customer_edit', array('id' => $customer->getId()));
+            return $this->redirectToRoute('customer_edit', array('id' => $customer->getCustomerId()));
         }
 
-        return $this->render('customer/edit.html.twig', array(
+        return $this->render('ParkingBundle:Customer:edit.html.twig', array(
                     'customer' => $customer,
                     'edit_form' => $editForm->createView(),
                     'delete_form' => $deleteForm->createView(),
@@ -113,7 +113,7 @@ class CustomerController extends Controller {
      */
     private function createDeleteForm(Customer $customer) {
         return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getId())))
+                        ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getCustomerId())))
                         ->setMethod('DELETE')
                         ->getForm()
         ;
