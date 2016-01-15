@@ -57,7 +57,7 @@ class ReservationController extends Controller {
     public function showAction(Reservation $reservation) {
         $deleteForm = $this->createDeleteForm($reservation);
 
-        return $this->render('reservation/show.html.twig', array(
+        return $this->render('ParkingBundle:Reservation:show.html.twig', array(
                     'reservation' => $reservation,
                     'delete_form' => $deleteForm->createView(),
         ));
