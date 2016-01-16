@@ -28,7 +28,6 @@ class SpaceType {
      */
     private $spaceTypeId;
 
-
     /**
      * Set name
      *
@@ -36,8 +35,7 @@ class SpaceType {
      *
      * @return SpaceType
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -48,8 +46,7 @@ class SpaceType {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -58,8 +55,12 @@ class SpaceType {
      *
      * @return integer
      */
-    public function getSpaceTypeId()
-    {
+    public function getSpaceTypeId() {
         return $this->spaceTypeId;
     }
+
+    public function getId() {
+        return $this->spaceTypeId;
+    }
+
 }

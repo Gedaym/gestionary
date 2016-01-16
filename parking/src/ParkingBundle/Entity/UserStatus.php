@@ -28,7 +28,6 @@ class UserStatus {
      */
     private $userStatusId;
 
-
     /**
      * Set name
      *
@@ -36,8 +35,7 @@ class UserStatus {
      *
      * @return UserStatus
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -48,8 +46,7 @@ class UserStatus {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -58,8 +55,12 @@ class UserStatus {
      *
      * @return integer
      */
-    public function getUserStatusId()
-    {
+    public function getUserStatusId() {
         return $this->userStatusId;
     }
+
+    public function getId() {
+        return $this->userStatusId;
+    }
+
 }

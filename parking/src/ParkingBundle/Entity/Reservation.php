@@ -297,4 +297,8 @@ class Reservation {
         return $this->customerId;
     }
 
+    public function getId() {
+        return $this->reservationId;
+    }
+
 }

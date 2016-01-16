@@ -18,9 +18,21 @@ fos_user_change_password:
    prefix: /profile
 
 parking_customer:
-    resource: "@ParkingBundle/Resources/config/routing/customer.yml"
-    prefix:   /customer
+   resource: "@ParkingBundle/Resources/config/routing/customer.yml"
+   prefix:   /customer
 
 parking_reservation:
-    resource: "@ParkingBundle/Resources/config/routing/reservation.yml"
-    prefix:   /reservation
+   resource: "@ParkingBundle/Resources/config/routing/reservation.yml"
+   prefix:   /reservation
+
+parking_parkingType:
+   resource: "@ParkingBundle/Resources/config/routing/parkingtype.yml"
+   prefix:   /parkingtype
+
+parking_reservation:
+   resource: "@ParkingBundle/Resources/config/routing/parking.yml"
+   prefix:   /parking
+
+parking_parking:
+   resource: "@ParkingBundle/Resources/config/routing/parking.yml"
+   prefix:   /parking

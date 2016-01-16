@@ -18,28 +18,28 @@
             </tr>
         </thead>
         <tbody>
-        {% for reservation in reservations %}
-            <tr>
-                <td><a href="{{ path('reservation_show', { 'id': reservation.reservationId }) }}">{{ reservation.numberReservation }}</a></td>
-                <td>{% if reservation.dateStart %}{{ reservation.dateStart|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if reservation.dateEnd %}{{ reservation.dateEnd|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ reservation.hourStart }}</td>
-                <td>{{ reservation.hourEnd }}</td>
-                <td>{{ reservation.price }}</td>
-                <td>{{ reservation.nbSpaces }}</td>
-                <td>{{ reservation.reservationId }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('reservation_show', { 'id': reservation.reservationId }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('reservation_edit', { 'id': reservation.reservationId }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
+            {% for reserva in reservation %}
+                <tr>
+                    <td><a href="{{ path('reservation_show', { 'id': reserva.reservationId }) }}">{{ reserva.numberReservation }}</a></td>
+                    <td>{% if reserva.dateStart %}{{ reserva.dateStart|date('Y-m-d') }}{% endif %}</td>
+                    <td>{% if reserva.dateEnd %}{{ reserva.dateEnd|date('Y-m-d') }}{% endif %}</td>
+                    <td>{{ reserva.hourStart }}</td>
+                    <td>{{ reserva.hourEnd }}</td>
+                    <td>{{ reserva.price }}</td>
+                    <td>{{ reserva.nbSpaces }}</td>
+                    <td>{{ reserva.reservationId }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('reservation_show', { 'id': reserva.reservationId }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('reservation_edit', { 'id': reserva.reservationId }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 

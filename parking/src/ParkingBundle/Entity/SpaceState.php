@@ -28,7 +28,6 @@ class SpaceState {
      */
     private $spaceStateId;
 
-
     /**
      * Set name
      *
@@ -36,8 +35,7 @@ class SpaceState {
      *
      * @return SpaceState
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -48,8 +46,7 @@ class SpaceState {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -58,8 +55,12 @@ class SpaceState {
      *
      * @return integer
      */
-    public function getSpaceStateId()
-    {
+    public function getSpaceStateId() {
         return $this->spaceStateId;
     }
+
+    public function getId() {
+        return $this->spaceStateId;
+    }
+
 }

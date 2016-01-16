@@ -11,20 +11,16 @@ use ParkingBundle\Form\CustomerType;
  * Customer controller.
  *
  */
-class CustomerController extends Controller {
+class CustomerController extends CrudController {
+
+    protected $entity = "Customer";
 
     /**
      * Lists all Customer entities.
      *
      */
     public function indexAction() {
-        $em = $this->getDoctrine()->getManager();
-
-        $customers = $em->getRepository('ParkingBundle:Customer')->findAll();
-
-        return $this->render('ParkingBundle:Customer:index.html.twig', array(
-                    'customers' => $customers,
-        ));
+        return parent::index($this->entity);
     }
 
     /**
@@ -33,21 +29,7 @@ class CustomerController extends Controller {
      */
     public function newAction(Request $request) {
         $customer = new Customer();
-        $form = $this->createForm('ParkingBundle\Form\CustomerType', $customer);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($customer);
-            $em->flush();
-
-            return $this->redirectToRoute('customer_show', array('id' => $customer->getCustomerId()));
-        }
-
-        return $this->render('ParkingBundle:Customer:new.html.twig', array(
-                    'customer' => $customer,
-                    'form' => $form->createView(),
-        ));
+        return parent::create($request, $customer);
     }
 
     /**
@@ -55,12 +37,7 @@ class CustomerController extends Controller {
      *
      */
     public function showAction(Customer $customer) {
-        $deleteForm = $this->createDeleteForm($customer);
-
-        return $this->render('ParkingBundle:Customer:show.html.twig', array(
-                    'customer' => $customer,
-                    'delete_form' => $deleteForm->createView(),
-        ));
+        return parent::show($customer);
     }
 
     /**
@@ -68,23 +45,7 @@ class CustomerController extends Controller {
      *
      */
     public function editAction(Request $request, Customer $customer) {
-        $deleteForm = $this->createDeleteForm($customer);
-        $editForm = $this->createForm('ParkingBundle\Form\CustomerType', $customer);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($customer);
-            $em->flush();
-
-            return $this->redirectToRoute('customer_edit', array('id' => $customer->getCustomerId()));
-        }
-
-        return $this->render('ParkingBundle:Customer:edit.html.twig', array(
-                    'customer' => $customer,
-                    'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
-        ));
+        return parent::edit($request, $customer);
     }
 
     /**
@@ -92,31 +53,7 @@ class CustomerController extends Controller {
      *
      */
     public function deleteAction(Request $request, Customer $customer) {
-        $form = $this->createDeleteForm($customer);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($customer);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('customer_index');
-    }
-
-    /**
-     * Creates a form to delete a Customer entity.
-     *
-     * @param Customer $customer The Customer entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Customer $customer) {
-        return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getCustomerId())))
-                        ->setMethod('DELETE')
-                        ->getForm()
-        ;
+        return parent::delete($request, $customer);
     }
 
 }

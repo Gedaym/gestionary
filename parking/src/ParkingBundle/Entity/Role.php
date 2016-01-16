@@ -28,7 +28,6 @@ class Role {
      */
     private $roleId;
 
-
     /**
      * Set name
      *
@@ -36,8 +35,7 @@ class Role {
      *
      * @return Role
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -48,8 +46,7 @@ class Role {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -58,8 +55,12 @@ class Role {
      *
      * @return integer
      */
-    public function getRoleId()
-    {
+    public function getRoleId() {
         return $this->roleId;
     }
+
+    public function getId() {
+        return $this->roleId;
+    }
+
 }

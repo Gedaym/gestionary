@@ -35,7 +35,6 @@ class Customer {
      */
     private $customerId;
 
-
     /**
      * Set typeAdhesion
      *
@@ -43,8 +42,7 @@ class Customer {
      *
      * @return Customer
      */
-    public function setTypeAdhesion($typeAdhesion)
-    {
+    public function setTypeAdhesion($typeAdhesion) {
         $this->typeAdhesion = $typeAdhesion;
 
         return $this;
@@ -55,8 +53,7 @@ class Customer {
      *
      * @return integer
      */
-    public function getTypeAdhesion()
-    {
+    public function getTypeAdhesion() {
         return $this->typeAdhesion;
     }
 
@@ -67,8 +64,7 @@ class Customer {
      *
      * @return Customer
      */
-    public function setImmatriculation($immatriculation)
-    {
+    public function setImmatriculation($immatriculation) {
         $this->immatriculation = $immatriculation;
 
         return $this;
@@ -79,8 +75,7 @@ class Customer {
      *
      * @return integer
      */
-    public function getImmatriculation()
-    {
+    public function getImmatriculation() {
         return $this->immatriculation;
     }
 
@@ -89,8 +84,12 @@ class Customer {
      *
      * @return integer
      */
-    public function getCustomerId()
-    {
+    public function getCustomerId() {
         return $this->customerId;
     }
+
+    public function getId() {
+        return $this->customerId;
+    }
+
 }

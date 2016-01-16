@@ -236,4 +236,8 @@ class Parking {
         return $this->typeId;
     }
 
+    public function getId() {
+        return $this->typeId;
+    }
+
 }

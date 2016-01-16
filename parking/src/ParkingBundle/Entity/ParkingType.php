@@ -28,7 +28,6 @@ class ParkingType {
      */
     private $parkingTypeId;
 
-
     /**
      * Set name
      *
@@ -36,8 +35,7 @@ class ParkingType {
      *
      * @return ParkingType
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -48,8 +46,7 @@ class ParkingType {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -58,8 +55,12 @@ class ParkingType {
      *
      * @return integer
      */
-    public function getParkingTypeId()
-    {
+    public function getParkingTypeId() {
         return $this->parkingTypeId;
     }
+
+    public function getId() {
+        return $this->parkingTypeId;
+    }
+
 }

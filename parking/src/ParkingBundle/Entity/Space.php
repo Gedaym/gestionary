@@ -177,4 +177,8 @@ class Space {
         return $this->SpaceStateId;
     }
 
+    public function getId() {
+        return $this->spaceId;
+    }
+
 }

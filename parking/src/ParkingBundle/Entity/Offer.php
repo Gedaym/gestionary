@@ -49,7 +49,6 @@ class Offer {
      */
     private $offerId;
 
-
     /**
      * Set name
      *
@@ -57,8 +56,7 @@ class Offer {
      *
      * @return Offer
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -69,8 +67,7 @@ class Offer {
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -81,8 +78,7 @@ class Offer {
      *
      * @return Offer
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -93,8 +89,7 @@ class Offer {
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -105,8 +100,7 @@ class Offer {
      *
      * @return Offer
      */
-    public function setState($state)
-    {
+    public function setState($state) {
         $this->state = $state;
 
         return $this;
@@ -117,8 +111,7 @@ class Offer {
      *
      * @return string
      */
-    public function getState()
-    {
+    public function getState() {
         return $this->state;
     }
 
@@ -129,8 +122,7 @@ class Offer {
      *
      * @return Offer
      */
-    public function setReduction($reduction)
-    {
+    public function setReduction($reduction) {
         $this->reduction = $reduction;
 
         return $this;
@@ -141,8 +133,7 @@ class Offer {
      *
      * @return integer
      */
-    public function getReduction()
-    {
+    public function getReduction() {
         return $this->reduction;
     }
 
@@ -151,8 +142,12 @@ class Offer {
      *
      * @return integer
      */
-    public function getOfferId()
-    {
+    public function getOfferId() {
         return $this->offerId;
     }
+
+    public function getId() {
+        return $this->offerId;
+    }
+
 }
