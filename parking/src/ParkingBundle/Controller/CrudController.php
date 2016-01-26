@@ -15,7 +15,7 @@ class CrudController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $entityAll = $em->getRepository('ParkingBundle:' . $this->entity)->findAll();
-
+        
         return $this->render('ParkingBundle:' . $this->entity . ':index.html.twig', array(
                     strtolower($this->entity) => $entityAll,
         ));
@@ -31,7 +31,7 @@ class CrudController extends Controller {
             $em->persist($class);
             $em->flush();
 
-            return $this->redirectToRoute(strtolower($this->entity) . '_edit', array('id' => $customer->getId()));
+            return $this->redirectToRoute(strtolower($this->entity) . '_edit', array('id' => $class->getId()));
         }
 
         return $this->render('ParkingBundle:' . $this->entity . ':edit.html.twig', array(
