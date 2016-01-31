@@ -11,3 +11,5 @@
 /composer.phar
 /composer.lock
 /nbproject
+.idea/
+app/config/parameters.yml
