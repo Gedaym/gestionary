@@ -10,21 +10,21 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="customer")
  * @ORM\Entity
  */
-class Customer
-{
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="customer_id_type_adhesion", type="integer", nullable=false)
-     */
-    private $customerIdTypeAdhesion;
+class Customer {
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="customer_immatriculation", type="integer", nullable=false)
+     * @ORM\Column(name="type_adhesion", type="integer", nullable=false)
      */
-    private $customerImmatriculation;
+    private $typeAdhesion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="immatriculation", type="integer", nullable=false)
+     */
+    private $immatriculation;
 
     /**
      * @var integer
@@ -35,54 +35,48 @@ class Customer
      */
     private $customerId;
 
-
-
     /**
-     * Set customerIdTypeAdhesion
+     * Set typeAdhesion
      *
-     * @param integer $customerIdTypeAdhesion
+     * @param integer $typeAdhesion
      *
      * @return Customer
      */
-    public function setCustomerIdTypeAdhesion($customerIdTypeAdhesion)
-    {
-        $this->customerIdTypeAdhesion = $customerIdTypeAdhesion;
+    public function setTypeAdhesion($typeAdhesion) {
+        $this->typeAdhesion = $typeAdhesion;
 
         return $this;
     }
 
     /**
-     * Get customerIdTypeAdhesion
+     * Get typeAdhesion
      *
      * @return integer
      */
-    public function getCustomerIdTypeAdhesion()
-    {
-        return $this->customerIdTypeAdhesion;
+    public function getTypeAdhesion() {
+        return $this->typeAdhesion;
     }
 
     /**
-     * Set customerImmatriculation
+     * Set immatriculation
      *
-     * @param integer $customerImmatriculation
+     * @param integer $immatriculation
      *
      * @return Customer
      */
-    public function setCustomerImmatriculation($customerImmatriculation)
-    {
-        $this->customerImmatriculation = $customerImmatriculation;
+    public function setImmatriculation($immatriculation) {
+        $this->immatriculation = $immatriculation;
 
         return $this;
     }
 
     /**
-     * Get customerImmatriculation
+     * Get immatriculation
      *
      * @return integer
      */
-    public function getCustomerImmatriculation()
-    {
-        return $this->customerImmatriculation;
+    public function getImmatriculation() {
+        return $this->immatriculation;
     }
 
     /**
@@ -90,8 +84,12 @@ class Customer
      *
      * @return integer
      */
-    public function getCustomerId()
-    {
+    public function getCustomerId() {
         return $this->customerId;
     }
+
+    public function getId() {
+        return $this->customerId;
+    }
+
 }

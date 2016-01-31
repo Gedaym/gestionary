@@ -10,14 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user_status")
  * @ORM\Entity
  */
-class UserStatus
-{
+class UserStatus {
+
     /**
      * @var string
      *
-     * @ORM\Column(name="user_status_name", type="string", length=30, nullable=false)
+     * @ORM\Column(name="name", type="string", length=30, nullable=false)
      */
-    private $userStatusName;
+    private $name;
 
     /**
      * @var integer
@@ -28,30 +28,26 @@ class UserStatus
      */
     private $userStatusId;
 
-
-
     /**
-     * Set userStatusName
+     * Set name
      *
-     * @param string $userStatusName
+     * @param string $name
      *
      * @return UserStatus
      */
-    public function setUserStatusName($userStatusName)
-    {
-        $this->userStatusName = $userStatusName;
+    public function setName($name) {
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get userStatusName
+     * Get name
      *
      * @return string
      */
-    public function getUserStatusName()
-    {
-        return $this->userStatusName;
+    public function getName() {
+        return $this->name;
     }
 
     /**
@@ -59,8 +55,12 @@ class UserStatus
      *
      * @return integer
      */
-    public function getUserStatusId()
-    {
+    public function getUserStatusId() {
         return $this->userStatusId;
     }
+
+    public function getId() {
+        return $this->userStatusId;
+    }
+
 }

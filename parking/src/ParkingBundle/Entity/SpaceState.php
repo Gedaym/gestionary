@@ -10,14 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="space_state")
  * @ORM\Entity
  */
-class SpaceState
-{
+class SpaceState {
+
     /**
      * @var string
      *
-     * @ORM\Column(name="space_state_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
-    private $spaceStateName;
+    private $name;
 
     /**
      * @var integer
@@ -28,30 +28,26 @@ class SpaceState
      */
     private $spaceStateId;
 
-
-
     /**
-     * Set spaceStateName
+     * Set name
      *
-     * @param string $spaceStateName
+     * @param string $name
      *
      * @return SpaceState
      */
-    public function setSpaceStateName($spaceStateName)
-    {
-        $this->spaceStateName = $spaceStateName;
+    public function setName($name) {
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get spaceStateName
+     * Get name
      *
      * @return string
      */
-    public function getSpaceStateName()
-    {
-        return $this->spaceStateName;
+    public function getName() {
+        return $this->name;
     }
 
     /**
@@ -59,8 +55,12 @@ class SpaceState
      *
      * @return integer
      */
-    public function getSpaceStateId()
-    {
+    public function getSpaceStateId() {
         return $this->spaceStateId;
     }
+
+    public function getId() {
+        return $this->spaceStateId;
+    }
+
 }

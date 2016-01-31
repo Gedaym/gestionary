@@ -10,14 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="parking_type")
  * @ORM\Entity
  */
-class ParkingType
-{
+class ParkingType {
+
     /**
      * @var string
      *
-     * @ORM\Column(name="parking_type_name", type="string", length=30, nullable=false)
+     * @ORM\Column(name="name", type="string", length=30, nullable=false)
      */
-    private $parkingTypeName;
+    private $name;
 
     /**
      * @var integer
@@ -28,30 +28,26 @@ class ParkingType
      */
     private $parkingTypeId;
 
-
-
     /**
-     * Set parkingTypeName
+     * Set name
      *
-     * @param string $parkingTypeName
+     * @param string $name
      *
      * @return ParkingType
      */
-    public function setParkingTypeName($parkingTypeName)
-    {
-        $this->parkingTypeName = $parkingTypeName;
+    public function setName($name) {
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get parkingTypeName
+     * Get name
      *
      * @return string
      */
-    public function getParkingTypeName()
-    {
-        return $this->parkingTypeName;
+    public function getName() {
+        return $this->name;
     }
 
     /**
@@ -59,8 +55,12 @@ class ParkingType
      *
      * @return integer
      */
-    public function getParkingTypeId()
-    {
+    public function getParkingTypeId() {
         return $this->parkingTypeId;
     }
+
+    public function getId() {
+        return $this->parkingTypeId;
+    }
+
 }

@@ -10,14 +10,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="space_type")
  * @ORM\Entity
  */
-class SpaceType
-{
+class SpaceType {
+
     /**
      * @var string
      *
-     * @ORM\Column(name="space_type_name", type="string", length=30, nullable=false)
+     * @ORM\Column(name="name", type="string", length=30, nullable=false)
      */
-    private $spaceTypeName;
+    private $name;
 
     /**
      * @var integer
@@ -28,30 +28,26 @@ class SpaceType
      */
     private $spaceTypeId;
 
-
-
     /**
-     * Set spaceTypeName
+     * Set name
      *
-     * @param string $spaceTypeName
+     * @param string $name
      *
      * @return SpaceType
      */
-    public function setSpaceTypeName($spaceTypeName)
-    {
-        $this->spaceTypeName = $spaceTypeName;
+    public function setName($name) {
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get spaceTypeName
+     * Get name
      *
      * @return string
      */
-    public function getSpaceTypeName()
-    {
-        return $this->spaceTypeName;
+    public function getName() {
+        return $this->name;
     }
 
     /**
@@ -59,8 +55,12 @@ class SpaceType
      *
      * @return integer
      */
-    public function getSpaceTypeId()
-    {
+    public function getSpaceTypeId() {
         return $this->spaceTypeId;
     }
+
+    public function getId() {
+        return $this->spaceTypeId;
+    }
+
 }

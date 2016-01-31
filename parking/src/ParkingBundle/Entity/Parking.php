@@ -7,52 +7,52 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Parking
  *
- * @ORM\Table(name="parking", indexes={@ORM\Index(name="FK_parking_parking_type_id", columns={"parking_parking_type_id"})})
+ * @ORM\Table(name="parking", indexes={@ORM\Index(name="FK_parkingtype_parking", columns={"type_id"})})
  * @ORM\Entity
  */
-class Parking
-{
+class Parking {
+
     /**
      * @var string
      *
-     * @ORM\Column(name="parking_name", type="string", length=50, nullable=false)
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
-    private $parkingName = '0';
+    private $name = '0';
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="parking_number_street", type="integer", nullable=false)
+     * @ORM\Column(name="number_street", type="integer", nullable=false)
      */
-    private $parkingNumberStreet = '0';
+    private $numberStreet = '0';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parking_street", type="string", length=50, nullable=false)
+     * @ORM\Column(name="street", type="string", length=50, nullable=false)
      */
-    private $parkingStreet = '0';
+    private $street = '0';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parking_city", type="string", length=50, nullable=false)
+     * @ORM\Column(name="city", type="string", length=50, nullable=false)
      */
-    private $parkingCity = '0';
+    private $city = '0';
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="parking_postal_code", type="integer", nullable=false)
+     * @ORM\Column(name="postal_code", type="integer", nullable=false)
      */
-    private $parkingPostalCode = '0';
+    private $postalCode = '0';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parking_description", type="text", length=65535, nullable=true)
+     * @ORM\Column(name="description", type="text", length=65535, nullable=true)
      */
-    private $parkingDescription;
+    private $description;
 
     /**
      * @var integer
@@ -68,155 +68,141 @@ class Parking
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\ParkingType")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="parking_parking_type_id", referencedColumnName="parking_type_id")
+     *   @ORM\JoinColumn(name="type_id", referencedColumnName="parking_type_id")
      * })
      */
-    private $parkingParkingType;
-
-
+    private $typeId;
 
     /**
-     * Set parkingName
+     * Set name
      *
-     * @param string $parkingName
+     * @param string $name
      *
      * @return Parking
      */
-    public function setParkingName($parkingName)
-    {
-        $this->parkingName = $parkingName;
+    public function setName($name) {
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get parkingName
+     * Get name
      *
      * @return string
      */
-    public function getParkingName()
-    {
-        return $this->parkingName;
+    public function getName() {
+        return $this->name;
     }
 
     /**
-     * Set parkingNumberStreet
+     * Set numberStreet
      *
-     * @param integer $parkingNumberStreet
+     * @param integer $numberStreet
      *
      * @return Parking
      */
-    public function setParkingNumberStreet($parkingNumberStreet)
-    {
-        $this->parkingNumberStreet = $parkingNumberStreet;
+    public function setNumberStreet($numberStreet) {
+        $this->numberStreet = $numberStreet;
 
         return $this;
     }
 
     /**
-     * Get parkingNumberStreet
+     * Get numberStreet
      *
      * @return integer
      */
-    public function getParkingNumberStreet()
-    {
-        return $this->parkingNumberStreet;
+    public function getNumberStreet() {
+        return $this->numberStreet;
     }
 
     /**
-     * Set parkingStreet
+     * Set street
      *
-     * @param string $parkingStreet
+     * @param string $street
      *
      * @return Parking
      */
-    public function setParkingStreet($parkingStreet)
-    {
-        $this->parkingStreet = $parkingStreet;
+    public function setStreet($street) {
+        $this->street = $street;
 
         return $this;
     }
 
     /**
-     * Get parkingStreet
+     * Get street
      *
      * @return string
      */
-    public function getParkingStreet()
-    {
-        return $this->parkingStreet;
+    public function getStreet() {
+        return $this->street;
     }
 
     /**
-     * Set parkingCity
+     * Set city
      *
-     * @param string $parkingCity
+     * @param string $city
      *
      * @return Parking
      */
-    public function setParkingCity($parkingCity)
-    {
-        $this->parkingCity = $parkingCity;
+    public function setCity($city) {
+        $this->city = $city;
 
         return $this;
     }
 
     /**
-     * Get parkingCity
+     * Get city
      *
      * @return string
      */
-    public function getParkingCity()
-    {
-        return $this->parkingCity;
+    public function getCity() {
+        return $this->city;
     }
 
     /**
-     * Set parkingPostalCode
+     * Set postalCode
      *
-     * @param integer $parkingPostalCode
+     * @param integer $postalCode
      *
      * @return Parking
      */
-    public function setParkingPostalCode($parkingPostalCode)
-    {
-        $this->parkingPostalCode = $parkingPostalCode;
+    public function setPostalCode($postalCode) {
+        $this->postalCode = $postalCode;
 
         return $this;
     }
 
     /**
-     * Get parkingPostalCode
+     * Get postalCode
      *
      * @return integer
      */
-    public function getParkingPostalCode()
-    {
-        return $this->parkingPostalCode;
+    public function getPostalCode() {
+        return $this->postalCode;
     }
 
     /**
-     * Set parkingDescription
+     * Set description
      *
-     * @param string $parkingDescription
+     * @param string $description
      *
      * @return Parking
      */
-    public function setParkingDescription($parkingDescription)
-    {
-        $this->parkingDescription = $parkingDescription;
+    public function setDescription($description) {
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get parkingDescription
+     * Get description
      *
      * @return string
      */
-    public function getParkingDescription()
-    {
-        return $this->parkingDescription;
+    public function getDescription() {
+        return $this->description;
     }
 
     /**
@@ -224,32 +210,34 @@ class Parking
      *
      * @return integer
      */
-    public function getParkingId()
-    {
+    public function getParkingId() {
         return $this->parkingId;
     }
 
     /**
-     * Set parkingParkingType
+     * Set typeId
      *
-     * @param \ParkingBundle\Entity\ParkingType $parkingParkingType
+     * @param \ParkingBundle\Entity\ParkingType $typeId
      *
      * @return Parking
      */
-    public function setParkingParkingType(\ParkingBundle\Entity\ParkingType $parkingParkingType = null)
-    {
-        $this->parkingParkingType = $parkingParkingType;
+    public function setTypeId(\ParkingBundle\Entity\ParkingType $typeId = null) {
+        $this->typeId = $typeId;
 
         return $this;
     }
 
     /**
-     * Get parkingParkingType
+     * Get typeId
      *
      * @return \ParkingBundle\Entity\ParkingType
      */
-    public function getParkingParkingType()
-    {
-        return $this->parkingParkingType;
+    public function getTypeId() {
+        return $this->typeId;
     }
+
+    public function getId() {
+        return $this->typeId;
+    }
+
 }

@@ -7,24 +7,27 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Space
  *
- * @ORM\Table(name="space", indexes={@ORM\Index(name="FK_space_space_type", columns={"space_space_type_id"}), @ORM\Index(name="FK_space_space_state", columns={"space_space_state_id"})})
+ * @ORM\Table(name="space", indexes={@ORM\Index(name="FK_space_space_type", columns={"space_type_id"}), @ORM\Index(name="FK_space_space_state", columns={"space_state_id"})})
  * @ORM\Entity
  */
-class Space
-{
+class Space {
+
     /**
      * @var integer
      *
-     * @ORM\Column(name="space_id_parking", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\Parking")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="parking_id", referencedColumnName="parking_id")
+     * })
      */
-    private $spaceIdParking;
+    private $ParkingId;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="space_price", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="price", type="float", precision=10, scale=0, nullable=false)
      */
-    private $spacePrice;
+    private $price;
 
     /**
      * @var integer
@@ -40,22 +43,20 @@ class Space
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\SpaceType")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="space_space_type_id", referencedColumnName="space_type_id")
+     *   @ORM\JoinColumn(name="space_type_id", referencedColumnName="space_type_id")
      * })
      */
-    private $spaceSpaceType;
+    private $SpaceTypeId;
 
     /**
      * @var \ParkingBundle\Entity\SpaceState
      *
      * @ORM\ManyToOne(targetEntity="ParkingBundle\Entity\SpaceState")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="space_space_state_id", referencedColumnName="space_state_id")
+     *   @ORM\JoinColumn(name="space_state_id", referencedColumnName="space_state_id")
      * })
      */
-    private $spaceSpaceState;
-
-
+    private $SpaceStateId;
 
     /**
      * Set spaceIdParking
@@ -64,8 +65,7 @@ class Space
      *
      * @return Space
      */
-    public function setSpaceIdParking($spaceIdParking)
-    {
+    public function setSpaceIdParking($spaceIdParking) {
         $this->spaceIdParking = $spaceIdParking;
 
         return $this;
@@ -76,33 +76,30 @@ class Space
      *
      * @return integer
      */
-    public function getSpaceIdParking()
-    {
+    public function getSpaceIdParking() {
         return $this->spaceIdParking;
     }
 
     /**
-     * Set spacePrice
+     * Set price
      *
-     * @param float $spacePrice
+     * @param float $price
      *
      * @return Space
      */
-    public function setSpacePrice($spacePrice)
-    {
-        $this->spacePrice = $spacePrice;
+    public function setPrice($price) {
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Get spacePrice
+     * Get price
      *
      * @return float
      */
-    public function getSpacePrice()
-    {
-        return $this->spacePrice;
+    public function getPrice() {
+        return $this->price;
     }
 
     /**
@@ -110,56 +107,78 @@ class Space
      *
      * @return integer
      */
-    public function getSpaceId()
-    {
+    public function getSpaceId() {
         return $this->spaceId;
     }
 
     /**
-     * Set spaceSpaceType
+     * Set parkingId
      *
-     * @param \ParkingBundle\Entity\SpaceType $spaceSpaceType
+     * @param \ParkingBundle\Entity\Parking $parkingId
      *
      * @return Space
      */
-    public function setSpaceSpaceType(\ParkingBundle\Entity\SpaceType $spaceSpaceType = null)
-    {
-        $this->spaceSpaceType = $spaceSpaceType;
+    public function setParkingId(\ParkingBundle\Entity\Parking $parkingId = null) {
+        $this->ParkingId = $parkingId;
 
         return $this;
     }
 
     /**
-     * Get spaceSpaceType
+     * Get parkingId
+     *
+     * @return \ParkingBundle\Entity\Parking
+     */
+    public function getParkingId() {
+        return $this->ParkingId;
+    }
+
+    /**
+     * Set spaceTypeId
+     *
+     * @param \ParkingBundle\Entity\SpaceType $spaceTypeId
+     *
+     * @return Space
+     */
+    public function setSpaceTypeId(\ParkingBundle\Entity\SpaceType $spaceTypeId = null) {
+        $this->SpaceTypeId = $spaceTypeId;
+
+        return $this;
+    }
+
+    /**
+     * Get spaceTypeId
      *
      * @return \ParkingBundle\Entity\SpaceType
      */
-    public function getSpaceSpaceType()
-    {
-        return $this->spaceSpaceType;
+    public function getSpaceTypeId() {
+        return $this->SpaceTypeId;
     }
 
     /**
-     * Set spaceSpaceState
+     * Set spaceStateId
      *
-     * @param \ParkingBundle\Entity\SpaceState $spaceSpaceState
+     * @param \ParkingBundle\Entity\SpaceState $spaceStateId
      *
      * @return Space
      */
-    public function setSpaceSpaceState(\ParkingBundle\Entity\SpaceState $spaceSpaceState = null)
-    {
-        $this->spaceSpaceState = $spaceSpaceState;
+    public function setSpaceStateId(\ParkingBundle\Entity\SpaceState $spaceStateId = null) {
+        $this->SpaceStateId = $spaceStateId;
 
         return $this;
     }
 
     /**
-     * Get spaceSpaceState
+     * Get spaceStateId
      *
      * @return \ParkingBundle\Entity\SpaceState
      */
-    public function getSpaceSpaceState()
-    {
-        return $this->spaceSpaceState;
+    public function getSpaceStateId() {
+        return $this->SpaceStateId;
     }
+
+    public function getId() {
+        return $this->spaceId;
+    }
+
 }

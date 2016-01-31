@@ -15,8 +15,8 @@ class CustomerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('customerIdTypeAdhesion')
-            ->add('customerImmatriculation')
+            ->add('typeAdhesion')
+            ->add('immatriculation')
         ;
     }
     
