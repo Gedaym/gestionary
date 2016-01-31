@@ -4,7 +4,7 @@ parking_index:
     methods:  GET
 
 parking_show:
-    path:     /{id}/show
+    path:     /show/{id}
     defaults: { _controller: "ParkingBundle:Parking:show" }
     methods:  GET
 
@@ -14,11 +14,11 @@ parking_new:
     methods:  [GET, POST]
 
 parking_edit:
-    path:     /{id}/edit
+    path:     /edit/{id}
     defaults: { _controller: "ParkingBundle:Parking:edit" }
     methods:  [GET, POST]
 
 parking_delete:
-    path:     /{id}/delete
+    path:     /delete/{id}
     defaults: { _controller: "ParkingBundle:Parking:delete" }
     methods:  DELETE

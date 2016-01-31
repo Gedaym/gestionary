@@ -4,7 +4,7 @@ customer_index:
     methods:  GET
 
 customer_show:
-    path:     /{id}/show
+    path:     /show/{id}
     defaults: { _controller: "ParkingBundle:Customer:show" }
     methods:  GET
 
@@ -14,11 +14,11 @@ customer_new:
     methods:  [GET, POST]
 
 customer_edit:
-    path:     /{id}/edit
+    path:     /edit/{id}
     defaults: { _controller: "ParkingBundle:Customer:edit" }
     methods:  [GET, POST]
 
 customer_delete:
-    path:     /{id}/delete
+    path:     /delete/{id}
     defaults: { _controller: "ParkingBundle:Customer:delete" }
     methods:  DELETE

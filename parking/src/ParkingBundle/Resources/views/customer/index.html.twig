@@ -2,40 +2,41 @@
 
 {% block body %}
     <h1>Customer list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Typeadhesion</th>
-                <th>Immatriculation</th>
-                <th>Customerid</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for custom in customer %}
+    <div class="row col-md-12">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><a href="{{ path('customer_show', { 'id': custom.customerId }) }}">{{ custom.typeAdhesion }}</a></td>
-                    <td>{{ custom.immatriculation }}</td>
-                    <td>{{ custom.customerId }}</td>
-                    <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('customer_show', { 'id': custom.customerId }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('customer_edit', { 'id': custom.customerId }) }}">edit</a>
-                            </li>
-                        </ul>
-                    </td>
+                    <th>Typeadhesion</th>
+                    <th>Immatriculation</th>
+                    <th>Customerid</th>
+                    <th>Actions</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for custom in customer %}
+                    <tr>
+                        <td><a href="{{ path('customer_show', { 'id': custom.customerId }) }}">{{ custom.typeAdhesion }}</a></td>
+                        <td>{{ custom.immatriculation }}</td>
+                        <td>{{ custom.customerId }}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('customer_show', { 'id': custom.customerId }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('customer_edit', { 'id': custom.customerId }) }}">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('customer_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+        <ul>
+            <li>
+                <a href="{{ path('customer_new') }}">Create a new entry</a>
+            </li>
+        </ul>
+    </div>
 {% endblock %}

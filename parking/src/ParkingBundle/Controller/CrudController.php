@@ -4,8 +4,6 @@ namespace ParkingBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use ParkingBundle\Entity\Customer;
-use ParkingBundle\Form\CustomerType;
 
 class CrudController extends Controller {
 
@@ -22,7 +20,7 @@ class CrudController extends Controller {
     }
 
     public function edit(request $request, $class) {
-        $deleteForm = $this->createDeleteForm($class);
+        $form = $this->createDeleteForm($class);
         $editForm = $this->createForm('ParkingBundle\Form\\' . $this->entity . 'Type', $class);
         $editForm->handleRequest($request);
 
@@ -37,7 +35,7 @@ class CrudController extends Controller {
         return $this->render('ParkingBundle:' . $this->entity . ':edit.html.twig', array(
                     strtolower($this->entity) => $class,
                     'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
+                    'delete_form' => $form->createView(),
         ));
     }
 
@@ -74,11 +72,10 @@ class CrudController extends Controller {
     }
 
     public function show($class) {
-        $deleteForm = $this->createDeleteForm($class);
-
+        $form = $this->createDeleteForm($class);
         return $this->render('ParkingBundle:' . $this->entity . ':show.html.twig', array(
                     strtolower($this->entity) => $class,
-                    'delete_form' => $deleteForm->createView(),
+                    'delete_form' => $form->createView(),
         ));
     }
 
@@ -89,7 +86,8 @@ class CrudController extends Controller {
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($class) {
+    public function createDeleteForm($class) {
+//        var_dump($class);die();
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl(strtolower($this->entity) . '_delete', array('id' => $class->getId())))
                         ->setMethod('DELETE')

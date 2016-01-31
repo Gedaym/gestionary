@@ -2,45 +2,45 @@
 
 {% block body %}
     <h1>Parking list</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Numberstreet</th>
-                <th>Street</th>
-                <th>City</th>
-                <th>Postalcode</th>
-                <th>Description</th>
-                <th>Parkingid</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for parkin in parking %}
+    <div class="row col-md-12">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><a href="{{ path('parking_show', { 'id': parkin.parkingId }) }}">{{ parkin.name }}</a></td>
-                    <td>{{ parkin.numberStreet }}</td>
-                    <td>{{ parkin.street }}</td>
-                    <td>{{ parkin.city }}</td>
-                    <td>{{ parkin.postalCode }}</td>
-                    <td>{{ parkin.description }}</td>
-                    <td>{{ parkin.parkingId }}</td>
-                    <td>
-                        <ul>
-                            <li>
-                                <a href="{{ path('parking_show', { 'id': parkin.parkingId }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('parking_edit', { 'id': parkin.parkingId }) }}">edit</a>
-                            </li>
-                        </ul>
-                    </td>
+                    <th>Name</th>
+                    <th>Numberstreet</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>Postalcode</th>
+                    <th>Description</th>
+                    <th>Parkingid</th>
+                    <th>Actions</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
+            </thead>
+            <tbody>
+                {% for parkin in parking %}
+                    <tr>
+                        <td><a href="{{ path('parking_show', { 'id': parkin.parkingId }) }}">{{ parkin.name }}</a></td>
+                        <td>{{ parkin.numberStreet }}</td>
+                        <td>{{ parkin.street }}</td>
+                        <td>{{ parkin.city }}</td>
+                        <td>{{ parkin.postalCode }}</td>
+                        <td>{{ parkin.description }}</td>
+                        <td>{{ parkin.parkingId }}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="{{ path('parking_show', { 'id': parkin.parkingId }) }}" class="btn btn-default">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('parking_edit', { 'id': parkin.parkingId }) }}" class="btn btn-primary">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <ul>
         <li>
             <a href="{{ path('parking_new') }}">Create a new entry</a>

@@ -1,52 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="row col-md-12">
     <h1>Parking</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Name</th>
-                <td>{{ parking.name }}</td>
-            </tr>
-            <tr>
-                <th>Numberstreet</th>
-                <td>{{ parking.numberStreet }}</td>
-            </tr>
-            <tr>
-                <th>Street</th>
-                <td>{{ parking.street }}</td>
-            </tr>
-            <tr>
-                <th>City</th>
-                <td>{{ parking.city }}</td>
-            </tr>
-            <tr>
-                <th>Postalcode</th>
-                <td>{{ parking.postalCode }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ parking.description }}</td>
-            </tr>
-            <tr>
-                <th>Parkingid</th>
-                <td>{{ parking.parkingId }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
+    <ul class="list-unstyled">
+        <li><label class="list_label">Name</label><span class="result">{{ parking.name }}</span></li>
+        <li><label class="list_label">Numberstreet</label>{{ parking.numberStreet }}</li>
+        <li><label class="list_label">Street</label>{{ parking.street }}</li>
+        <li><label class="list_label">City</label>{{ parking.city }}</li>
+        <li><label class="list_label">Postalcode</label>{{ parking.postalCode }}</li>
+        <li><label class="list_label">Description</label>{{ parking.description }}</li>
+        <li><label class="list_label">Parkingid</label>{{ parking.parkingId }}</li>
         <li>
-            <a href="{{ path('parking_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('parking_edit', { 'id': parking.parkingId }) }}">Edit</a>
-        </li>
-        <li>
+            <a href="{{ path('parking_index') }}" class="btn btn-default">Back to the list</a>
+            <a href="{{ path('parking_edit', { 'id': parking.parkingId }) }}" class="btn btn-primary">Edit</a>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+            <input type="submit" class="btn btn-danger" value="Delete">
+            {{ form_end(delete_form) }}</li>
     </ul>
+</ul>
+</div>
+    
+    <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ parking.description }}</td>
+                <td></td>
+
+
 {% endblock %}
