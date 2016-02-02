@@ -17,35 +17,35 @@ class Parking {
      *
      * @ORM\Column(name="name", type="string", length=50, nullable=false)
      */
-    private $name = '0';
+    private $name;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="number_street", type="integer", nullable=false)
      */
-    private $numberStreet = '0';
+    private $numberStreet;
 
     /**
      * @var string
      *
      * @ORM\Column(name="street", type="string", length=50, nullable=false)
      */
-    private $street = '0';
+    private $street;
 
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=50, nullable=false)
      */
-    private $city = '0';
+    private $city;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="postal_code", type="integer", nullable=false)
      */
-    private $postalCode = '0';
+    private $postalCode;
 
     /**
      * @var string

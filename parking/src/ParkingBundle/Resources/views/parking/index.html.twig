@@ -7,32 +7,30 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Numberstreet</th>
-                    <th>Street</th>
-                    <th>City</th>
-                    <th>Postalcode</th>
+                    <th>N°</th>
+                    <th>Rue</th>
+                    <th>Ville</th>
+                    <th>Code Postal</th>
                     <th>Description</th>
-                    <th>Parkingid</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                {% for parkin in parking %}
+                {% for row in parking %}
                     <tr>
-                        <td><a href="{{ path('parking_show', { 'id': parkin.parkingId }) }}">{{ parkin.name }}</a></td>
-                        <td>{{ parkin.numberStreet }}</td>
-                        <td>{{ parkin.street }}</td>
-                        <td>{{ parkin.city }}</td>
-                        <td>{{ parkin.postalCode }}</td>
-                        <td>{{ parkin.description }}</td>
-                        <td>{{ parkin.parkingId }}</td>
+                        <td><a href="{{ path('parking_show', { 'id': row.parkingId }) }}">{{ row.name }}</a></td>
+                        <td>{{ row.numberStreet }}</td>
+                        <td>{{ row.street }}</td>
+                        <td>{{ row.city }}</td>
+                        <td>{{ row.postalCode }}</td>
+                        <td>{{ row.description }}</td>
                         <td>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="{{ path('parking_show', { 'id': parkin.parkingId }) }}" class="btn btn-default">show</a>
+                                    <a href="{{ path('parking_show', { 'id': row.parkingId }) }}" class="btn btn-default">show</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('parking_edit', { 'id': parkin.parkingId }) }}" class="btn btn-primary">edit</a>
+                                    <a href="{{ path('parking_edit', { 'id': row.parkingId }) }}" class="btn btn-primary">edit</a>
                                 </li>
                             </ul>
                         </td>

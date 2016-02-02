@@ -5,19 +5,27 @@ namespace ParkingBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class ParkingType extends AbstractType {
+class ParkingForm extends AbstractType {
 
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder
-                ->add('name')
-        ;
+        $builder->add('name')
+                ->add('numberStreet')
+                ->add('street')
+                ->add('city')
+                ->add('postalCode')
+                ->add('description')
+                ->add('save', SubmitType::class, array('label' => 'Modifier'));
     }
-
+    
+    public function getName() {
+        return 'parking';
+    }
     /**
      * @param OptionsResolver $resolver
      */

@@ -13,15 +13,14 @@ class CrudController extends Controller {
         $em = $this->getDoctrine()->getManager();
 
         $entityAll = $em->getRepository('ParkingBundle:' . $this->entity)->findAll();
-        
+
         return $this->render('ParkingBundle:' . $this->entity . ':index.html.twig', array(
                     strtolower($this->entity) => $entityAll,
         ));
     }
 
     public function edit(request $request, $class) {
-        $form = $this->createDeleteForm($class);
-        $editForm = $this->createForm('ParkingBundle\Form\\' . $this->entity . 'Type', $class);
+        $editForm = $this->createForm('ParkingBundle\Form\\' . $this->entity, $class);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -29,18 +28,17 @@ class CrudController extends Controller {
             $em->persist($class);
             $em->flush();
 
-            return $this->redirectToRoute(strtolower($this->entity) . '_edit', array('id' => $class->getId()));
+            return $this->redirectToRoute(strtolower($this->entity) . '_index');
         }
 
         return $this->render('ParkingBundle:' . $this->entity . ':edit.html.twig', array(
                     strtolower($this->entity) => $class,
                     'edit_form' => $editForm->createView(),
-                    'delete_form' => $form->createView(),
         ));
     }
 
     public function create(request $request, $class) {
-        $form = $this->createForm('ParkingBundle\Form\\' . $this->entity . 'Type', $class);
+        $form = $this->createForm('ParkingBundle\Form\\' . $this->entity, $class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -48,7 +46,7 @@ class CrudController extends Controller {
             $em->persist($class);
             $em->flush();
 
-            return $this->redirectToRoute(strtolower($this->entity) . '_show', array('id' => $class->getId()));
+            return $this->redirectToRoute(strtolower($this->entity) . '_index', array('id' => $class->getId()));
         }
 
         return $this->render('ParkingBundle:' . $this->entity . ':new.html.twig', array(
@@ -59,10 +57,10 @@ class CrudController extends Controller {
 
     public function delete(Request $request, $class) {
 
-        $form = $this->createDeleteForm($class);
-        $form->handleRequest($request);
+        $deleteForm = $this->createDeleteForm($class);
+        $deleteForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($deleteForm->isSubmitted() && $deleteForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($class);
             $em->flush();
@@ -87,7 +85,6 @@ class CrudController extends Controller {
      * @return \Symfony\Component\Form\Form The form
      */
     public function createDeleteForm($class) {
-//        var_dump($class);die();
         return $this->createFormBuilder()
                         ->setAction($this->generateUrl(strtolower($this->entity) . '_delete', array('id' => $class->getId())))
                         ->setMethod('DELETE')

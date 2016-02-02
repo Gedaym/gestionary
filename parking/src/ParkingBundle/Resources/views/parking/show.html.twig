@@ -1,32 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="row col-md-12">
-    <h1>Parking</h1>
-    <ul class="list-unstyled">
-        <li><label class="list_label">Name</label><span class="result">{{ parking.name }}</span></li>
-        <li><label class="list_label">Numberstreet</label>{{ parking.numberStreet }}</li>
-        <li><label class="list_label">Street</label>{{ parking.street }}</li>
-        <li><label class="list_label">City</label>{{ parking.city }}</li>
-        <li><label class="list_label">Postalcode</label>{{ parking.postalCode }}</li>
-        <li><label class="list_label">Description</label>{{ parking.description }}</li>
-        <li><label class="list_label">Parkingid</label>{{ parking.parkingId }}</li>
-        <li>
-            <a href="{{ path('parking_index') }}" class="btn btn-default">Back to the list</a>
-            <a href="{{ path('parking_edit', { 'id': parking.parkingId }) }}" class="btn btn-primary">Edit</a>
-            {{ form_start(delete_form) }}
-            <input type="submit" class="btn btn-danger" value="Delete">
-            {{ form_end(delete_form) }}</li>
-    </ul>
-</ul>
-</div>
-    
-    <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>{{ parking.description }}</td>
-                <td></td>
-
+    <div class="row col-md-12">
+        <h1>Parking</h1>
+        <ul class="list-unstyled">
+            <li><label class="list_label">Name</label><span class="result">{{ parking.name }}</span></li>
+            <li><label class="list_label">Numberstreet</label>{{ parking.numberStreet }}</li>
+            <li><label class="list_label">Street</label>{{ parking.street }}</li>
+            <li><label class="list_label">City</label>{{ parking.city }}</li>
+            <li><label class="list_label">Postalcode</label>{{ parking.postalCode }}</li>
+            <li><label class="list_label">Description</label>{{ parking.description }}</li>
+            <li><label class="list_label">Parkingid</label>{{ parking.parkingId }}</li>
+            <li>
+                <a href="{{ path('parking_index') }}" class="btn btn-default">Back to the list</a>
+                <a href="{{ path('parking_edit', { 'id': parking.parkingId }) }}" class="btn btn-primary">Edit</a>
+                {{ form_start(delete_form) }}
+                <input type="submit" class="btn btn-danger" value="Delete">
+                {{ form_end(delete_form) }}</li>
+        </ul>
+    </div>
 
 {% endblock %}
